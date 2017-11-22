@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     oldPassword: string
     newPassword: string
 
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }
