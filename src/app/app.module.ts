@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ExampleEditComponent } from './example-edit/example-edit.component';
 
 
 
@@ -18,8 +17,7 @@ import { ExampleEditComponent } from './example-edit/example-edit.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    ExampleEditComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
