@@ -1,8 +1,8 @@
 <h2>New Example</h2>
 
-<form (ngSubmit)="saveExample(text)">
-  <label for="name">Text:</label>
-  <input name="text" [(ngModel)]="text">
+<form (ngSubmit)="saveExample(newExample)">
+  <label for="text">Text:</label>
+  <input name="example.text" [(ngModel)]="newExample.text">
 
   <input type="submit" value="Create">
 </form>

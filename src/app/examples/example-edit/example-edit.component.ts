@@ -30,11 +30,12 @@ updatedExample = <any>{};
   updateExample(updatedExample) {
   console.log("updating example yo!");
   this.examplesService.updateExample(updatedExample)
-  .subscribe(response => {
-    console.log('from updateExample fnc', response.json());
-    let example = response.json();
-    this.router.navigate(["/examples/" + example.id]);
-  });
+  // .subscribe(response => {
+  //   console.log('from updateExample fnc', response.json());
+  //   let example = response.json();
+  //   this.router.navigate(["/examples/" + example.id]);
+  // });
+  .subscribe(()=> this.router.navigate(["/examples"]));
 }
 
 }

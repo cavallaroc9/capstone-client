@@ -29,14 +29,20 @@ export class ExamplesService {
 	}
 
 	deleteExample(example) {
-		console.log(example.id);
-		return this.http.delete(`${environment.apiOrigin}/examples/${example.id}`);
+
+    let config = {}
+
+    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
+    console.log('auth', this.authService.getUserToken())
+
+		console.log('delete service example.id is', example.id);
+		return this.http.delete(`${environment.apiOrigin}/examples/${example.id}`, config);
 	}
 
-	saveExample(text) {
+	saveExample(newExample) {
     let example = {
       'example': {
-        'text': text
+        'text': newExample.text
       }
     }
 
@@ -45,7 +51,7 @@ export class ExamplesService {
 
     config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
 console.log('auth', this.authService.getUserToken())
-		console.log('from example service', text);
+		console.log('from example service', example);
 		return this.http.post(`${environment.apiOrigin}/examples/`, example, config);
 	}
 
