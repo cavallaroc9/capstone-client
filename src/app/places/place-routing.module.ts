@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlacesComponent } from './places.component';
 import { PlaceIndexComponent } from './place-index/place-index.component';
+import { PlaceNewComponent } from './place-new/place-new.component';
+
 
 const aboutRoutes: Routes = [
     {
@@ -11,11 +13,11 @@ const aboutRoutes: Routes = [
             {
                 path: '',
                 component: PlaceIndexComponent
-            }
-        //     {
-        //         path: 'new',
-        //         component: PlaceNewComponent
-        //     },
+            },
+            {
+                path: 'new',
+                component: PlaceNewComponent
+            },
         //     {
         //         path: ':id',
         //         component: PlaceShowComponent

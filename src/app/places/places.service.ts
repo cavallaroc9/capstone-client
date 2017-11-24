@@ -42,10 +42,17 @@ export class PlacesService {
 	savePlace(newPlace) {
     let place = {
       'place': {
-        'text': newPlace.text
+        'title': newPlace.title,
+        'city': newPlace.city,
+        'state': newPlace.state,
+        'country': newPlace.country,
+        'description': newPlace.description,
+        'start_date': newPlace.start_date,
+        'end_date': newPlace.end_date,
+        'rating': newPlace.rating,
+        'photoUrl': newPlace.photoUrl,
       }
     }
-
 
     let config = {}
 
