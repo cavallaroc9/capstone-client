@@ -5,6 +5,7 @@
 <div class="places">
   <div class="row" *ngFor="let place of allPlaces">
     <ul>
+      <img [src]="place.photoUrl" [alt]="place.title">
       <li>
         <h2>
           <a routerLink="/places/{{place.id}}">
