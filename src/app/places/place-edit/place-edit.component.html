@@ -1,3 +1,36 @@
-<p>
-  place-edit works!
-</p>
+<h2>Edit Place</h2>
+
+<form (ngSubmit)="updatePlace(updatedPlace)">
+  <label for="title">Title:</label>
+  <input name="place.title" [(ngModel)]="updatedPlace.title">
+
+  <label for="city">City:</label>
+  <input name="place.city" [(ngModel)]="updatedPlace.city">
+
+  <label for="state">State:</label>
+  <input name="place.state" [(ngModel)]="updatedPlace.state">
+
+  <label for="country">Country:</label>
+  <input name="place.country" [(ngModel)]="updatedPlace.country">
+
+  <label for="description">Description:</label>
+  <input name="place.description" [(ngModel)]="updatedPlace.description">
+
+  <label for="start_date">Start Date:</label>
+  <input name="place.start_date"
+ [(ngModel)]="updatedPlace.start_date">
+
+ <label for="end_date">Start Date:</label>
+ <input name="place.end_date"
+[(ngModel)]="updatedPlace.end_date">
+
+<label for="rating">Rating:</label>
+<input name="place.rating"
+[(ngModel)]="updatedPlace.rating">
+
+<label for="photoUrl">Photo URL:</label>
+<input name="place.photoUrl"
+[(ngModel)]="updatedPlace.photoUrl">
+
+  <input type="submit" value="Update">
+</form>
