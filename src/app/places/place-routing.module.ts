@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlacesComponent } from './places.component';
 import { PlaceIndexComponent } from './place-index/place-index.component';
 import { PlaceNewComponent } from './place-new/place-new.component';
-
+import { PlaceShowComponent } from './place-show/place-show.component';
+import { PlaceEditComponent } from './place-edit/place-edit.component';
 
 const aboutRoutes: Routes = [
     {
@@ -18,14 +19,14 @@ const aboutRoutes: Routes = [
                 path: 'new',
                 component: PlaceNewComponent
             },
-        //     {
-        //         path: ':id',
-        //         component: PlaceShowComponent
-        //     },
-        //     {
-        //         path: 'edit/:id',
-        //         component: PlaceEditComponent
-        //     },
+            {
+                path: ':id',
+                component: PlaceShowComponent
+            },
+            {
+                path: 'edit/:id',
+                component: PlaceEditComponent
+            }
         ]
     }
 ];

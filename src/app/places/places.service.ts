@@ -13,7 +13,7 @@ export class PlacesService {
 
     config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
     console.log('auth', this.authService.getUserToken())
-
+    console.log('from getAllPlaces')
 		return this.http.get(`${environment.apiOrigin}/places`, config);
 	}
 
@@ -65,7 +65,15 @@ console.log('auth', this.authService.getUserToken())
 	updatePlace(updatedPlace) {
     let place = {
       'place': {
-        'text': updatedPlace.text
+        'title': updatedPlace.title,
+        'city': updatedPlace.city,
+        'state': updatedPlace.state,
+        'country': updatedPlace.country,
+        'description': updatedPlace.description,
+        'start_date': updatedPlace.start_date,
+        'end_date': updatedPlace.end_date,
+        'rating': updatedPlace.rating,
+        'photoUrl': updatedPlace.photoUrl
       }
     }
     let config = {}
