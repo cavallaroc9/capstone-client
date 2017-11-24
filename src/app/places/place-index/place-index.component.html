@@ -1,3 +1,27 @@
-<p>
-  place-index works!
-</p>
+<h2>Places</h2>
+
+<a class="btn" routerLink="/places/new">Add Place!</a>
+
+<div class="places">
+  <div class="row" *ngFor="let place of allPlaces">
+    <ul>
+      <li>
+        <h2>
+          <a routerLink="/places/{{place.id}}">
+            {{place.title}}
+          </a>
+        </h2>
+      </li>
+      <li>
+        <a routerLink="/places/edit/{{place.id}}">
+          Edit
+        </a>
+      </li>
+      <li>
+        <form (ngSubmit)="deletePlace(place)">
+          <input type="submit" value="Delete"/>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
