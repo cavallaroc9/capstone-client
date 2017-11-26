@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service'
 
 @Component({
@@ -15,9 +16,17 @@ export class LoginComponent implements OnInit {
     oldPassword: string
     newPassword: string
 
-  constructor(public auth: AuthService) { }
+    message: string;
+
+  constructor(public auth: AuthService, public router: Router) {
+  this.setMessage();
+}
 
   ngOnInit() {
+  }
+
+  setMessage() {
+    this.message = 'Logged ' + (this.auth.user ? 'in' : 'out');
   }
 
   signOut() {
@@ -25,8 +34,20 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this.auth.signIn(this.user.email, this.user.password);
-  }
+    this.message = 'Trying to log in...';
+    this.auth.signIn(this.user.email, this.user.password)
+    this.setMessage();
+    if(this.auth.user) {
+      // Get the redirect URL from our auth service
+      // If no redirect has been set, use the default
+      let redirect = this.auth.redirectUrl ? this.auth.redirectUrl : '/';
+
+              // Redirect the user
+              this.router.navigate([redirect]);
+    }
+
+    }
+
 
   changePassword() {
     this.auth.changePassword(this.oldPassword, this.newPassword);
