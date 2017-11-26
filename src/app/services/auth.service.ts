@@ -10,6 +10,9 @@ import 'rxjs/add/operator/toPromise';
 export class AuthService {
   user: any;
 
+  // store the URL so we can redirect after logging in
+  redirectUrl: string;
+
   constructor(private http: Http) { }
 
 getUserToken() {
@@ -26,10 +29,12 @@ signIn(email: string, password: string) {
    }
 
    // Make the post request. environment.apiServer contains the local server address http://localhost:4741
- this.http.post(environment.apiOrigin + '/sign-in', credentials)
+ return this.http.post(environment.apiOrigin + '/sign-in', credentials)
    .subscribe(
      // Save the response to user
-     response => this.user = JSON.parse(response['_body']).user,
+     response => {
+       return this.user = JSON.parse(response['_body']).user
+     },
      err => console.log(err)
    )
 }
@@ -65,7 +70,10 @@ signUp(email: string, password: string, password_confirmation: string) {
     this.http.delete(environment.apiOrigin + '/sign-out/' + this.user.id, config)
       .subscribe(
         // Remove the logged in user.
-        data => this.user = null,
+        data => {
+          this.user = null
+          console.log(this.user)
+        },
         err => console.log(err)
       )
   }

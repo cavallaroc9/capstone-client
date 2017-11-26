@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!auth.user">
   <h3>Sign Up</h3>
   <input [(ngModel)]="newUser.email" type="text" placeholder="Email"/>
   <input [(ngModel)]="newUser.password" type="text" placeholder="Password"/>
@@ -7,14 +7,14 @@
 </div>
 
 
-<div class="container">
+<div class="container" *ngIf="!auth.user">
   <h3>Sign In</h3>
   <input [(ngModel)]="user.email" type="text" placeholder="Email"/>
   <input [(ngModel)]="user.password" type="text" placeholder="Password"/>
   <input (click)="signIn()" type="submit" value="Log in"/>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="auth.user">
   <h3>Change Password</h3>
   <input [(ngModel)]="oldPassword" type="text" placeholder="Old"/>
   <input [(ngModel)]="newPassword" type="text" placeholder="New"/>
@@ -22,7 +22,7 @@
 
 </div>
 
-<div class="container">
+<div class="container" *ngIf="auth.user">
   <h3>Log Out</h3>
   <input (click)="signOut()" type="submit" value="Sign Out"/>
 </div>

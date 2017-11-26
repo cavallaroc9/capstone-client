@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../services/auth-guard.service';
 import { PlacesComponent } from './places.component';
 import { PlaceIndexComponent } from './place-index/place-index.component';
 import { PlaceNewComponent } from './place-new/place-new.component';
@@ -10,6 +11,7 @@ const aboutRoutes: Routes = [
     {
         path: 'places',
         component: PlacesComponent,
+        canActivate: [AuthGuard],
         children: [ //create the sub sections (children) for this route
             {
                 path: '',
