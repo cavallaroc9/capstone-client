@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/toPromise';
 
+import { AlertService } from '../services/index';
+
 @Injectable()
 export class AuthService {
   user: any;
@@ -16,7 +18,8 @@ export class AuthService {
 
   constructor(
     private http: Http,
-    private router : Router
+    private router : Router,
+    private alertService: AlertService
   ) { }
 
 getUserToken() {
@@ -32,6 +35,10 @@ signIn(email: string, password: string) {
      }
    }
 
+   let successMessage: string = email + ' is successfully signed in!'
+
+   let errMessage: string = 'Oops, something went wrong. Please try signing in again!'
+
    // Make the post request. environment.apiServer contains the local server address http://localhost:4741
  return this.http.post(environment.apiOrigin + '/sign-in', credentials)
    .subscribe(
@@ -39,8 +46,12 @@ signIn(email: string, password: string) {
      response => {
        this.user = JSON.parse(response['_body']).user;
         this.router.navigate(["/places/"]);
+        this.alertService.success(successMessage);
      },
-     err => console.log(err)
+     err => {
+       console.log('err', err)
+       this.alertService.error(errMessage)
+     }
    )
 }
 
@@ -54,14 +65,22 @@ signUp(email: string, password: string, password_confirmation: string) {
     }
   }
 
+  let successMessage: string = email + ' is successfully registered and signed in!'
+
+  let errMessage: string = 'Oops, something went wrong. Please try registering again!'
+
   // Make the post request. environment.apiServer contains the local server address http://localhost:4741
    this.http.post(environment.apiOrigin + '/sign-up', credentials)
      .subscribe(
        response => {
          // Send the existing credentials back to the server to log in the new user
          this.signIn(credentials.credentials.email, credentials.credentials.password)
+         this.alertService.success(successMessage);
        },
-       err => console.log(err)
+       err => {
+      console.log('err', err)
+       this.alertService.error(errMessage)
+     }
      )
  }
 
