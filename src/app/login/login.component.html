@@ -1,20 +1,24 @@
-<div class="container" *ngIf="!auth.user">
+<!-- <div class="container" *ngIf="!auth.user">
   <h3>Sign Up</h3>
   <input [(ngModel)]="newUser.email" type="text" placeholder="Email"/>
   <input [(ngModel)]="newUser.password" type="text" placeholder="Password"/>
   <input [(ngModel)]="newUser.password_confirmation" type="text" placeholder="Confirm Passsword"/>
   <input (click)="signUp()" type="submit" value="Sign Up"/>
-</div>
+</div> -->
 
-
-<div class="container" *ngIf="!auth.user">
+<div class="overlay">
+  <h1>*Traveler</h1>
+<div class="container col-xs-10 col-md-4 center-block" *ngIf="!auth.user">
   <h3>Sign In</h3>
-  <input [(ngModel)]="user.email" type="text" placeholder="Email"/>
-  <input [(ngModel)]="user.password" type="text" placeholder="Password"/>
-  <input (click)="signIn()" type="submit" value="Log in"/>
+  <input class="form-control" [(ngModel)]="user.email" type="text" placeholder="Email"/>
+  <br>
+  <input class="form-control" [(ngModel)]="user.password" type="text" placeholder="Password"/>
+  <br>
+  <input class="btn-w btn-primary" (click)="signIn()" type="submit" value="Log in"/>
+</div>
 </div>
 
-<div class="container" *ngIf="auth.user">
+<!-- <div class="container" *ngIf="auth.user">
   <h3>Change Password</h3>
   <input [(ngModel)]="oldPassword" type="text" placeholder="Old"/>
   <input [(ngModel)]="newPassword" type="text" placeholder="New"/>
@@ -27,4 +31,4 @@
   <input (click)="signOut()" type="submit" value="Sign Out"/>
 </div>
 
-<div *ngIf="auth.user" class="container">I see a user!!! <strong>{{auth.user.email}}</strong></div>
+<div *ngIf="auth.user" class="container">I see a user!!! <strong>{{auth.user.email}}</strong></div> -->

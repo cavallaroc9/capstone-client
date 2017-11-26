@@ -1,0 +1,36 @@
+
+.center-block {
+  background-color: rgba(0,0,0,0.5);
+  border: 0;
+  float: none;
+  margin: 10% auto;
+  height: 50%;
+  padding: 22px;
+  text-align: center;
+}
+
+.btn-w {
+  width: 33%;
+}
+
+.overlay{
+    background-image: url(https://www.walldevil.com/wallpapers/a14/lake-bigpic-wallpaper-pictures-clear-stars-night-landscape-reflection-mountains-wallpapers.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    /*z-index:1000;*/
+}
+h1 {
+  color: white;
+}
+h3 {
+  color: white;
+  padding: 20px;
+}

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/Observable/of';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -13,7 +14,10 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private router : Router
+  ) { }
 
 getUserToken() {
   return this.user.token
@@ -33,7 +37,8 @@ signIn(email: string, password: string) {
    .subscribe(
      // Save the response to user
      response => {
-       return this.user = JSON.parse(response['_body']).user
+       this.user = JSON.parse(response['_body']).user;
+        this.router.navigate(["/places/"]);
      },
      err => console.log(err)
    )
