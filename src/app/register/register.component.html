@@ -1,0 +1,17 @@
+<div class="overlay">
+  <alert></alert>
+  <h1>*Traveler</h1>
+<div class="container col-xs-10 col-md-4 center-block" *ngIf="!auth.user">
+  <a class="inactive" routerLink="/login/">Sign In</a>
+  <a class="active">Register</a>
+<div class="inputs">
+  <input class="form-control" [(ngModel)]="newUser.email" type="text" placeholder="Email"/>
+  <br>
+  <input class="form-control" [(ngModel)]="newUser.password" type="text" placeholder="Password"/>
+  <br>
+  <input class="form-control" [(ngModel)]="newUser.password_confirmation" type="text" placeholder="Confirm Passsword"/>
+  <br>
+  <input class="btn btn-primary" (click)="signUp()" type="submit" value="Sign Up"/>
+</div>
+</div>
+</div>
