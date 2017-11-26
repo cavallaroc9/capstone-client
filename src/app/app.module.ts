@@ -19,9 +19,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { LoginComponent } from './login/login.component';
 
+import { RegisterComponent } from './register/register.component';
+import { RegisterRoutingModule } from './register/register-routing.module'
+
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
-import { HomeComponent } from './home/home.component';
+
+
 
 
 
@@ -29,7 +33,7 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { HomeComponent } from './home/home.component';
     ExamplesModule,
     ExamplesRoutingModule,
     PlacesModule,
-    PlaceRoutingModule
+    PlaceRoutingModule,
+    RegisterRoutingModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

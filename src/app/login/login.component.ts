@@ -16,27 +16,21 @@ export class LoginComponent implements OnInit {
     oldPassword: string
     newPassword: string
 
-    message: string;
 
-  constructor(public auth: AuthService, public router: Router) {
-  this.setMessage();
+  constructor(public auth: AuthService,
+    public router: Router) {
 }
 
   ngOnInit() {
   }
 
-  setMessage() {
-    this.message = 'Logged ' + (this.auth.user ? 'in' : 'out');
-  }
 
   signOut() {
     this.auth.signOut();
   }
 
   signIn() {
-    this.message = 'Trying to log in...';
     this.auth.signIn(this.user.email, this.user.password)
-    this.setMessage();
     if(this.auth.user) {
       // Get the redirect URL from our auth service
       // If no redirect has been set, use the default
@@ -53,7 +47,5 @@ export class LoginComponent implements OnInit {
     this.auth.changePassword(this.oldPassword, this.newPassword);
   }
 
-  signUp(){
-    this.auth.signUp(this.newUser.email, this.newUser.password, this.newUser.password_confirmation)
-  }
+
 }
