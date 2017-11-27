@@ -11,10 +11,12 @@ export class PlacesService {
 
     let config = {}
 
+     let errMessage: string = 'Oops, something went wrong. Please refresh and try again!';
+
     config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
     console.log('auth', this.authService.getUserToken())
     console.log('from getAllPlaces')
-		return this.http.get(`${environment.apiOrigin}/places`, config);
+		return this.http.get(`${environment.apiOrigin}/places`, config)
 	}
 
 	getOnePlace(placeId) {
@@ -86,7 +88,7 @@ console.log('auth', this.authService.getUserToken())
 
   constructor(
     private http: Http,
-    private authService : AuthService,
+    private authService : AuthService
   ) { }
 
 }
