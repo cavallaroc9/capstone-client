@@ -51,6 +51,7 @@ export class PlaceIndexComponent implements OnInit {
         this.alertService.success(successMessage);
     },
       err => {
+        this.alertService.clear();
         window.scrollTo(0, 0);
         this.alertService.error(errMessage);
       }
