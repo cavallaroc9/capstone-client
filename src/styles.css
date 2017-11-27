@@ -2,7 +2,8 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 body {
-  background-color: #222;
+  background-image: url(https://i.pinimg.com/736x/5d/ac/d0/5dacd004927da04b74e271b176c3dee0--subtle-textures-seamless-textures.jpg);
+  background-repeat: repeat;
 }
 
 html {
