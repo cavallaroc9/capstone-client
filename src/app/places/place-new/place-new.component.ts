@@ -24,9 +24,16 @@ export class PlaceNewComponent implements OnInit {
 
 
     savePlace(newPlace) {
-      let errMessage: string = 'Oops, something went wrong. Please try again or refresh the page!';
 
       let successMessage: string = 'New Place was successfully added!';
+
+      let errTitleMessage: string = 'Title is a required field.';
+
+      let errCityMessage: string = 'City is a required field.';
+
+      let errCountryMessage: string = 'Country is a required field.';
+
+      let errMessage: string = 'Oops, something went wrong saving your place. Please try again or refresh the page!';
 
     	console.log("saving place");
     	console.log(newPlace);
@@ -39,8 +46,21 @@ export class PlaceNewComponent implements OnInit {
               this.alertService.success(successMessage);
   		},
           err => {
-            window.scrollTo(0, 0);
-            this.alertService.error(errMessage);
+            this.alertService.clear();
+            if (!newPlace.title) {
+              window.scrollTo(0, 0);
+              this.alertService.error(errTitleMessage);
+            } if (!newPlace.city) {
+              window.scrollTo(0, 0);
+              this.alertService.error(errCityMessage);
+            } if (!newPlace.country) {
+              window.scrollTo(0, 0);
+              this.alertService.error(errCountryMessage);
+            } else if (newPlace.title && newPlace.city && newPlace.country){
+              window.scrollTo(0, 0);
+              this.alertService.error(errMessage);
+            }
+
           }
     )
     }

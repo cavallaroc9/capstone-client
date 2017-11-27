@@ -37,6 +37,12 @@ signIn(email: string, password: string) {
 
    let successMessage: string = email + ' is successfully signed in!';
 
+   let errEmailMessage: string = 'Email is a required field.';
+
+   let errPasswordMessage: string = 'Password is a required field.';
+
+   let errUnAuthMessage: string = 'Invalid email and/or password';
+
    let errMessage: string = 'Oops, something went wrong. Please try signing in again!';
 
    // Make the post request. environment.apiServer contains the local server address http://localhost:4741
@@ -49,8 +55,17 @@ signIn(email: string, password: string) {
         this.alertService.success(successMessage);
      },
      err => {
+       this.alertService.clear();
        console.log('err', err);
-       this.alertService.error(errMessage);
+        if (!email) {
+          this.alertService.error(errEmailMessage);
+        } if (!password) {
+          this.alertService.error(errPasswordMessage);
+        } else if (email && password && err.status === 401) {
+           this.alertService.error(errUnAuthMessage);
+        } else if (email && password) {
+          this.alertService.error(errMessage);
+        }
      }
    )
 }
@@ -67,6 +82,14 @@ signUp(email: string, password: string, password_confirmation: string) {
 
   let successMessage: string = email + ' is successfully registered and signed in!';
 
+  let errEmailMessage: string = 'Email is a required field.';
+
+  let errPasswordMessage: string = 'Password is a required field.';
+
+  let errConfirmPasswordMessage: string = 'Confirm Password is a required field.';
+
+  let errTakenMessage: string = 'Sorry, that email is aleady taken. Please choose a different email.';
+
   let errMessage: string = 'Oops, something went wrong. Please try registering again!';
 
   // Make the post request. environment.apiServer contains the local server address http://localhost:4741
@@ -78,15 +101,24 @@ signUp(email: string, password: string, password_confirmation: string) {
          this.alertService.success(successMessage);
        },
        err => {
+         this.alertService.clear();
       console.log('err', err);
-       this.alertService.error(errMessage);
+      if (!email) {
+        this.alertService.error(errEmailMessage);
+      } if (!password) {
+        this.alertService.error(errPasswordMessage);
+      } if (!password_confirmation) {
+        this.alertService.error(errConfirmPasswordMessage);
+      } else if (email && password && password_confirmation && err._body === '{"email":["has already been taken"]}') {
+        this.alertService.error(errTakenMessage);
+      } else if (email && password && password_confirmation) {
+        this.alertService.error(errMessage);
+      }
      }
-     )
- }
+)
+}
 
  signOut() {
-
-     let successMessage: string = 'You are successfully signed out!';
 
      let errMessage: string = 'Oops, something went wrong. Please try sigining out again!';
 
@@ -103,9 +135,9 @@ signUp(email: string, password: string, password_confirmation: string) {
           this.user = null;
           console.log(this.user);
           this.router.navigate(["/login/"]);
-          this.alertService.success(successMessage);
         },
         err => {
+          this.alertService.clear();
           console.log(err);
           this.alertService.error(errMessage);
 
@@ -125,6 +157,10 @@ signUp(email: string, password: string, password_confirmation: string) {
 
       let successMessage: string = 'Password has been changed successfull for ' + this.user.email + ' !';
 
+      let errOldMessage: string = 'Old Password is a required field.';
+
+      let errNewMessage: string = 'New Password is a required field.';
+
       let errMessage: string = 'Oops, something went wrong. Please try changing your password again!';
 
 
@@ -139,11 +175,20 @@ signUp(email: string, password: string, password_confirmation: string) {
             .subscribe(
               data => {
                 console.log('Success', this.user.email);
+                this.router.navigate(["/places/"]);
                 this.alertService.success(successMessage);
               },
               err => {
-                console.log(err);
-                this.alertService.error(errMessage);
+                this.alertService.clear();
+             console.log('err', err);
+              if (!oldPassword) {
+               this.alertService.error(errOldMessage);
+             } if (!newPassword) {
+              this.alertService.error(errNewMessage);
+            } else if (oldPassword && newPassword) {
+              console.log(err);
+              this.alertService.error(errMessage);
+            }
               }
             )
         }

@@ -43,6 +43,13 @@ export class PlaceEditComponent implements OnInit {
   updatePlace(updatedPlace) {
 
     let successMessage: string = 'Your place was successfully updated!';
+
+    let errTitleMessage: string = 'Title is a required field.';
+
+    let errCityMessage: string = 'City is a required field.';
+
+    let errCountryMessage: string = 'Country is a required field.';
+
     let errMessage: string = 'Oops, something went wrong updating your place. Please try again or refresh the page!';
 
   console.log("updating example yo!");
@@ -53,8 +60,20 @@ export class PlaceEditComponent implements OnInit {
       this.alertService.success(successMessage);
     },
     err => {
-      window.scrollTo(0, 0);
-      this.alertService.error(errMessage);
+      this.alertService.clear();
+      if (!updatedPlace.title) {
+        window.scrollTo(0, 0);
+        this.alertService.error(errTitleMessage);
+      } if (!updatedPlace.city) {
+        window.scrollTo(0, 0);
+        this.alertService.error(errCityMessage);
+      } if (!updatedPlace.country) {
+        window.scrollTo(0, 0);
+        this.alertService.error(errCountryMessage);
+      } else if (updatedPlace.title && updatedPlace.city && updatedPlace.country){
+        window.scrollTo(0, 0);
+        this.alertService.error(errMessage);
+      }
     }
   );
   }
