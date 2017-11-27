@@ -1,9 +1,16 @@
-<div *ngIf="onePlace">
-	<h2>{{onePlace.title}}</h2>
-  <h3>{{onePlace.city}}</h3>
-  <h3>{{onePlace.state}}</h3>
-    <h3>{{onePlace.start_date}}</h3>
-      <h3>{{onePlace.end_date}}</h3>
-        <h3>{{onePlace.description}}</h3>
-          <h3>{{onePlace.rating}}</h3>
+<div class="col-sm-6 col-md-4 col-lg-4 center-block" *ngIf="onePlace">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="place-image"><img class="img-responsive" [src]="onePlace.photoUrl" [alt]="onePlace.title">
+    </div>
+      <div class="place-details">
+        <div class="date">{{onePlace.start_date}}</div>
+        <div class="title">{{onePlace.title}}</div>
+        <div class="location">{{onePlace.city}} {{onePlace.state}} {{onePlace.country}}</div>
+        <div class="description">{{oneplace.description}}</div>
+        <div class="rating">{{onePlace.rating}}</div>
+        <button class="btn btn-info" routerLink="/places/edit/{{onePlace.id}}">Edit</button>
+      </div>
+  </div>
+</div>
 </div>

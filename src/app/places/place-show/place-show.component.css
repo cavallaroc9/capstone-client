@@ -1,0 +1,38 @@
+.center-block {
+  float: none;
+  margin: 0 auto;
+  padding: 22px;
+  text-align: center;
+}
+
+
+.date {
+  text-align: right;
+  color: #908f8f;
+  font-size: 12px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+}
+
+.location {
+  font-size: 16px;
+  color: #322e2e;
+}
+
+.panel-body {
+  padding-bottom: 10px;
+}
+
+.place {
+  margin-top: 20px;
+}
+
+.place-image {
+  width: 100%;
+}
+
+.title {
+  font-size: 25px;
+  color: #322e2e;
+  margin-bottom: -2px;
+}

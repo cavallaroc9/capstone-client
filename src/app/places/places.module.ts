@@ -8,6 +8,7 @@ import { PlaceNewComponent } from './place-new/place-new.component';
 import { PlaceShowComponent } from './place-show/place-show.component';
 import { PlaceEditComponent } from './place-edit/place-edit.component'
 import { PlacesService } from './places.service';
+import { AlertService } from '../services/index';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { PlacesService } from './places.service';
     RouterModule,
     FormsModule
   ],
-  declarations: [PlaceIndexComponent, PlacesComponent, PlaceNewComponent, PlaceShowComponent, PlaceEditComponent ],
-  providers: [PlacesService]
+  declarations: [PlaceIndexComponent, PlacesComponent, PlaceNewComponent, PlaceShowComponent, PlaceEditComponent],
+  providers: [PlacesService, AlertService]
 })
 export class PlacesModule { }
