@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,17 @@ export class AppComponent {
   title = 'app';
   apiOrigin = environment.apiOrigin;
 
-constructor(private router : Router) { }
+constructor(
+  public auth: AuthService,
+  private router : Router
+) { }
 
   ngOnInit() {
     this.router.navigate(["/login/"]);
   }
+
+  signOut() {
+    this.auth.signOut();
+  }
+
 }
