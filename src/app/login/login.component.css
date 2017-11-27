@@ -1,6 +1,4 @@
-h1 {
-  color: white;
-}
+
 
 a {
   color: white;
@@ -9,6 +7,11 @@ a {
   padding: 30px;
 
 }
+
+h1 {
+  color: white;
+}
+
 
 a:hover {
   color: white;
