@@ -1,7 +1,34 @@
-<h2>Places</h2>
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>TRACK YOUR TRAVELS</h1>
+    <p>Never forget your travel experiences again!</p>
+    <button class="btn btn-primary" routerLink="/places/new">Add new visit</button>
+  </div>
+</div>
 
-<a class="btn" routerLink="/places/new">Add Place!</a>
 
+<div class="col-md-4 col-sm-6 place" *ngFor="let place of allPlaces">
+  <a routerLink="/places/{{place.id}}">
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="place-image"><img class="img-responsive" [src]="place.photoUrl" [alt]="place.title">
+</div>
+  <div class="panel-body">
+    <div class="place-details">
+      <div class="date">{{place.start_date}}</div>
+      <div class="title">{{place.title}}</div>
+      <div class="location">{{place.city}} {{place.state}} {{place.country}}</div>
+      <div class="description">{{place.description}}</div>
+      <a class="btn btn-info" routerLink="/places/edit/{{place.id}}">
+        Edit
+      </a>
+  </div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<!--
 <div class="places">
   <div class="row" *ngFor="let place of allPlaces">
     <ul>
@@ -26,3 +53,4 @@
     </ul>
   </div>
 </div>
+</div> -->
