@@ -19,6 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { LoginComponent } from './login/login.component';
 
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordRoutingModule } from './change-password/change-password-routing.module';
+
 import { RegisterComponent } from './register/register.component';
 import { RegisterRoutingModule } from './register/register-routing.module'
 
@@ -33,12 +36,14 @@ import { AuthGuard } from './services/auth-guard.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { AuthGuard } from './services/auth-guard.service';
     ExamplesRoutingModule,
     PlacesModule,
     PlaceRoutingModule,
-    RegisterRoutingModule
+    RegisterRoutingModule,
+    ChangePasswordRoutingModule
   ],
   providers: [AuthService, AuthGuard, AlertService],
   bootstrap: [AppComponent]

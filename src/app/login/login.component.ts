@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service'
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,17 +17,15 @@ export class LoginComponent implements OnInit {
     newPassword: string
 
 
-  constructor(public auth: AuthService,
-    public router: Router) {
+  constructor(
+    public auth: AuthService,
+    public router: Router
+  ) {
 }
 
   ngOnInit() {
   }
 
-
-  signOut() {
-    this.auth.signOut();
-  }
 
   signIn() {
     this.auth.signIn(this.user.email, this.user.password)
@@ -41,11 +39,6 @@ export class LoginComponent implements OnInit {
     }
 
     }
-
-
-  changePassword() {
-    this.auth.changePassword(this.oldPassword, this.newPassword);
-  }
 
 
 }

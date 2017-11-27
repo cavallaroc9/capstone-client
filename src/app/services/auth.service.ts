@@ -23,7 +23,7 @@ export class AuthService {
   ) { }
 
 getUserToken() {
-  return this.user.token
+  return this.user.token;
 }
 
 signIn(email: string, password: string) {
@@ -33,11 +33,11 @@ signIn(email: string, password: string) {
        'email': email,
        'password': password
      }
-   }
+   };
 
-   let successMessage: string = email + ' is successfully signed in!'
+   let successMessage: string = email + ' is successfully signed in!';
 
-   let errMessage: string = 'Oops, something went wrong. Please try signing in again!'
+   let errMessage: string = 'Oops, something went wrong. Please try signing in again!';
 
    // Make the post request. environment.apiServer contains the local server address http://localhost:4741
  return this.http.post(environment.apiOrigin + '/sign-in', credentials)
@@ -49,8 +49,8 @@ signIn(email: string, password: string) {
         this.alertService.success(successMessage);
      },
      err => {
-       console.log('err', err)
-       this.alertService.error(errMessage)
+       console.log('err', err);
+       this.alertService.error(errMessage);
      }
    )
 }
@@ -63,42 +63,53 @@ signUp(email: string, password: string, password_confirmation: string) {
       'password': password,
       'password_confirmation': password_confirmation
     }
-  }
+  };
 
-  let successMessage: string = email + ' is successfully registered and signed in!'
+  let successMessage: string = email + ' is successfully registered and signed in!';
 
-  let errMessage: string = 'Oops, something went wrong. Please try registering again!'
+  let errMessage: string = 'Oops, something went wrong. Please try registering again!';
 
   // Make the post request. environment.apiServer contains the local server address http://localhost:4741
    this.http.post(environment.apiOrigin + '/sign-up', credentials)
      .subscribe(
        response => {
          // Send the existing credentials back to the server to log in the new user
-         this.signIn(credentials.credentials.email, credentials.credentials.password)
+         this.signIn(credentials.credentials.email, credentials.credentials.password);
          this.alertService.success(successMessage);
        },
        err => {
-      console.log('err', err)
-       this.alertService.error(errMessage)
+      console.log('err', err);
+       this.alertService.error(errMessage);
      }
      )
  }
 
  signOut() {
+
+     let successMessage: string = 'You are successfully signed out!';
+
+     let errMessage: string = 'Oops, something went wrong. Please try sigining out again!';
+
     // Create the configuration object to be able to store the Headers > Authentication
-    let config = {}
+    let config = {};
 
     // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+    config['headers'] = { Authorization:'Token token=' + this.getUserToken()};
     // Make the delete request to URL, and add the token from Config.
     this.http.delete(environment.apiOrigin + '/sign-out/' + this.user.id, config)
       .subscribe(
         // Remove the logged in user.
         data => {
-          this.user = null
-          console.log(this.user)
+          this.user = null;
+          console.log(this.user);
+          this.router.navigate(["/login/"]);
+          this.alertService.success(successMessage);
         },
-        err => console.log(err)
+        err => {
+          console.log(err);
+          this.alertService.error(errMessage);
+
+        }
       )
   }
 
@@ -110,21 +121,30 @@ signUp(email: string, password: string, password_confirmation: string) {
           'old': oldPassword,
           'new': newPassword
         }
-      }
+      };
 
+      let successMessage: string = 'Password has been changed successfull for ' + this.user.email + ' !';
+
+      let errMessage: string = 'Oops, something went wrong. Please try changing your password again!';
 
 
           // Create the configuration object to be able to store the Headers > Authentication
-          let config = {}
+          let config = {};
 
           // Set the headers key
-          config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+          config['headers'] = { Authorization:'Token token=' + this.getUserToken()};
 
           // Make the patch request to URL, add the password data and token from Config.
           this.http.patch(environment.apiOrigin + '/change-password/' + this.user.id, passwords, config)
             .subscribe(
-              data => console.log('Success'),
-              err => console.log(err)
+              data => {
+                console.log('Success', this.user.email);
+                this.alertService.success(successMessage);
+              },
+              err => {
+                console.log(err);
+                this.alertService.error(errMessage);
+              }
             )
         }
 
