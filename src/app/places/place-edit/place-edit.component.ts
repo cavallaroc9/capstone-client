@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from '../../services/index';
 
 
 @Component({
@@ -15,23 +16,51 @@ export class PlaceEditComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private router : Router,
-    private placesService : PlacesService
+    private placesService : PlacesService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
+    let errMessage: string = 'Oops, something went wrong retrieving your place. Please try again or refresh the page!';
+
     this.route.params.forEach( param => {
       this.placesService.getOnePlace(param.id)
-      .subscribe(response => {
+      .subscribe(
+        response => {
+        window.scrollTo(0, 0);
         console.log('from edit', response.json());
         this.updatedPlace = response.json()['place'];
-      });
+      },
+      err => {
+        this.router.navigate(["/places"]);
+        window.scrollTo(0, 0);
+        this.alertService.error(errMessage);
+      }
+    );
     });
   }
 
   updatePlace(updatedPlace) {
+
+    let successMessage: string = 'Your place was successfully updated!';
+    let errMessage: string = 'Oops, something went wrong updating your place. Please try again or refresh the page!';
+
   console.log("updating example yo!");
   this.placesService.updatePlace(updatedPlace)
-  .subscribe(()=> this.router.navigate(["/places"]));
-}
+  .subscribe(
+    response => {
+      this.router.navigate(["/places/" + updatedPlace.id]);
+      this.alertService.success(successMessage);
+    },
+    err => {
+      window.scrollTo(0, 0);
+      this.alertService.error(errMessage);
+    }
+  );
+  }
+
+  cancelPlace() {
+    this.router.navigate(["/places"]);
+  }
 
 }

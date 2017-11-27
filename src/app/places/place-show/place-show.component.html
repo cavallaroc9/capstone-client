@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-4 col-lg-4 center-block" *ngIf="onePlace">
+<div class="col-sm-6 col-md-6 col-lg-6 center-block" *ngIf="onePlace">
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="place-image"><img class="img-responsive" [src]="onePlace.photoUrl" [alt]="onePlace.title">
@@ -7,10 +7,12 @@
         <div class="date">{{onePlace.start_date}}</div>
         <div class="title">{{onePlace.title}}</div>
         <div class="location">{{onePlace.city}} {{onePlace.state}} {{onePlace.country}}</div>
-        <div class="description">{{oneplace.description}}</div>
+        <div class="description">{{onePlace.description}}</div>
         <div class="rating">{{onePlace.rating}}</div>
-        <button class="btn btn-info" routerLink="/places/edit/{{onePlace.id}}">Edit</button>
-      </div>
+        <div class="modify pull-right">
+          <a routerLink="/places/edit/{{onePlace.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+          <a (click)="deletePlace(onePlace)"><span class="glyphicon glyphicon-trash"></span></a>
+       </div>
   </div>
 </div>
 </div>

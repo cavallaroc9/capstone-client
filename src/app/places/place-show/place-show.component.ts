@@ -12,6 +12,7 @@ import { AlertService } from '../../services/index';
 export class PlaceShowComponent implements OnInit {
 
   onePlace;
+  allPlaces = [];
 
   constructor(
     private route : ActivatedRoute,
@@ -21,22 +22,45 @@ export class PlaceShowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let errMessage: string = 'Oops, something went wrong. Please try again or refresh the page!';
+    let errMessage: string = 'Oops, something went wrong retrieving your place. Please try again or refresh the page!';
+
 
     this.route.params.forEach( param => {
   		this.placesService.getOnePlace(param.id)
   		.subscribe(
         response => {
+          window.scrollTo(0, 0);
           console.log(response.json());
           this.onePlace = response.json()["place"];
           console.log('onePlace IS', this.onePlace);
   		},
         err => {
           this.router.navigate(["/places"]);
-          this.alertService.error(errMessage)
+          window.scrollTo(0, 0);
+          this.alertService.error(errMessage);
         }
     );
   	});
+  }
+
+
+    deletePlace(deletedPlace) {
+      let successMessage: string = 'Your place was successfully deleted!';
+      let errMessage: string = 'Oops, something went wrong deleting your place. Please try again or refresh the page!';
+
+    this.placesService.deletePlace(deletedPlace)
+    .subscribe(
+      response => {
+      let placeIndex = this.allPlaces.indexOf(deletedPlace);
+      this.allPlaces.splice(placeIndex, 1);
+      this.router.navigate(["/places"]);
+      this.alertService.success(successMessage);
+    },
+    err => {
+      window.scrollTo(0, 0);
+      this.alertService.error(errMessage);
+    }
+  );
   }
 
 }

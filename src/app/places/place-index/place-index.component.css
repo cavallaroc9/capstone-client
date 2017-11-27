@@ -13,11 +13,30 @@ font-size: 50px;
 
 .date {
   text-align: right;
-    color: #908f8f;
+  color: #908f8f;
   font-size: 12px;
-      margin-top: -5px;
-      margin-bottom: 2px;
-      margin-right: 5px;
+  margin-top: -5px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+}
+
+.glyphicon-edit{
+  color: #4e76f1;
+  font-size:25px;
+}
+
+.glyphicon-edit:hover {
+  cursor: pointer;
+}
+
+.glyphicon-trash {
+  color: #ff165e;
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+.glyphicon-trash:hover {
+  cursor: pointer;
 }
 
 .hero-image {
@@ -44,6 +63,10 @@ font-size: 50px;
   color: #322e2e;
 }
 
+.modify {
+  margin-top: 15px;
+}
+
 .panel-body {
   padding-bottom: 10px;
 }
@@ -54,6 +77,10 @@ font-size: 50px;
 
 .place-image {
   width: 100%;
+}
+
+.pull-right {
+	float: right;
 }
 
 .title {
