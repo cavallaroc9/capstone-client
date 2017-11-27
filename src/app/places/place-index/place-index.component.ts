@@ -12,13 +12,6 @@ export class PlaceIndexComponent implements OnInit {
 
   allPlaces = [];
 
-  deletePlace(deletedPlace) {
-  this.placesService.deletePlace(deletedPlace)
-  .subscribe(response => {
-    let placeIndex = this.allPlaces.indexOf(deletedPlace);
-    this.allPlaces.splice(placeIndex, 1);
-  });
-}
 
   constructor(
     private placesService : PlacesService,
@@ -26,11 +19,12 @@ export class PlaceIndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     let errMessage: string = 'Oops, something went wrong. Please try again or refresh the page!';
+    let errMessage: string = 'Oops, something went wrong. Please try again or refresh the page!';
 
     this.placesService.getAllPlaces()
   		.subscribe(
         response => {
+          window.scrollTo(0, 0);
           console.log('response is', response.json());
           this.allPlaces = response.json()['places'];
           console.log('all places are', (this.allPlaces));
@@ -41,6 +35,26 @@ export class PlaceIndexComponent implements OnInit {
         this.alertService.error(errMessage);
       }
     );
+  }
+
+
+    deletePlace(deletedPlace) {
+      let successMessage: string = 'Your place was successfully deleted!';
+      let errMessage: string = 'Oops, something went wrong deleting your place. Please try again or refresh the page!';
+
+    this.placesService.deletePlace(deletedPlace)
+    .subscribe(
+      response => {
+        let placeIndex = this.allPlaces.indexOf(deletedPlace);
+        this.allPlaces.splice(placeIndex, 1);
+        window.scrollTo(0, 0);
+        this.alertService.success(successMessage);
+    },
+      err => {
+        window.scrollTo(0, 0);
+        this.alertService.error(errMessage);
+      }
+  );
   }
 
 }

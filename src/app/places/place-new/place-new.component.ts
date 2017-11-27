@@ -19,6 +19,7 @@ export class PlaceNewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
   }
 
 

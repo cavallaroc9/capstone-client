@@ -8,25 +8,28 @@
 
 
 <div class="col-md-4 col-sm-6 place" *ngFor="let place of allPlaces">
-  <a routerLink="/places/{{place.id}}">
 <div class="panel panel-default">
 <div class="panel-body">
+    <a routerLink="/places/{{place.id}}">
 <div class="place-image"><img class="img-responsive" [src]="place.photoUrl" [alt]="place.title">
 </div>
+</a>
   <div class="panel-body">
+    <a routerLink="/places/{{place.id}}">
     <div class="place-details">
       <div class="date">{{place.start_date}}</div>
       <div class="title">{{place.title}}</div>
       <div class="location">{{place.city}} {{place.state}} {{place.country}}</div>
       <div class="description">{{place.description}}</div>
-      <a class="btn btn-info" routerLink="/places/edit/{{place.id}}">
-        Edit
-      </a>
   </div>
-</div>
-</div>
-</div>
 </a>
+ <div class="modify pull-right">
+   <a routerLink="/places/edit/{{place.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+   <a (click)="deletePlace(place)"><span class="glyphicon glyphicon-trash"></span></a>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!--
 <div class="places">
