@@ -27,6 +27,8 @@ import { ChangePasswordRoutingModule } from './change-password/change-password-r
 import { RegisterComponent } from './register/register.component';
 import { RegisterRoutingModule } from './register/register-routing.module'
 
+import { AgmCoreModule } from '@agm/core';
+
 // import alert service and component
 import { AlertComponent } from './_directives/index';
 import { AlertService } from './services/index';
@@ -59,7 +61,11 @@ import { AuthGuard } from './services/auth-guard.service';
     PlacesModule,
     PlaceRoutingModule,
     RegisterRoutingModule,
-    ChangePasswordRoutingModule
+    ChangePasswordRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDO_u2FHozo4P8o-V7YtHs9vcOhEnf79is',
+      libraries: ['places']
+    })
   ],
   providers: [AuthService, AuthGuard, AlertService],
   bootstrap: [AppComponent]

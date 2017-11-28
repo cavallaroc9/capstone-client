@@ -46,8 +46,6 @@ export class PlaceEditComponent implements OnInit {
 
     let errTitleMessage: string = 'Title is a required field.';
 
-    let errCityMessage: string = 'City is a required field.';
-
     let errCountryMessage: string = 'Country is a required field.';
 
     let errMessage: string = 'Oops, something went wrong updating your place. Please try again or refresh the page!';
@@ -64,9 +62,6 @@ export class PlaceEditComponent implements OnInit {
       if (!updatedPlace.title) {
         window.scrollTo(0, 0);
         this.alertService.error(errTitleMessage);
-      } if (!updatedPlace.city) {
-        window.scrollTo(0, 0);
-        this.alertService.error(errCityMessage);
       } if (!updatedPlace.country) {
         window.scrollTo(0, 0);
         this.alertService.error(errCountryMessage);

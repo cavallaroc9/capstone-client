@@ -11,12 +11,18 @@ import { PlaceEditComponent } from './place-edit/place-edit.component'
 import { PlacesService } from './places.service';
 import { AlertService } from '../services/index';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    ModalModule
+    ModalModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDO_u2FHozo4P8o-V7YtHs9vcOhEnf79is',
+      libraries: ['places']
+    })
   ],
   declarations: [PlaceIndexComponent, PlacesComponent, PlaceNewComponent, PlaceShowComponent, PlaceEditComponent],
   providers: [PlacesService, AlertService]
