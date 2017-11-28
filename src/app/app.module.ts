@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {ModalModule} from "ngx-modal";
+
 import { HttpModule } from '@angular/http';
 
 
@@ -47,6 +49,7 @@ import { AuthGuard } from './services/auth-guard.service';
   ],
   imports: [
     BrowserModule,
+    ModalModule,
     LoginRoutingModule,
     AppRoutingModule,
     FormsModule,

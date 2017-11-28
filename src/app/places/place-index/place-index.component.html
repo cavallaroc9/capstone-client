@@ -1,11 +1,10 @@
 <div class="hero-image">
   <div class="hero-text">
     <h1>TRACK YOUR TRAVELS</h1>
-    <p>Never forget your travel experiences again!</p>
-    <button class="btn btn-primary" routerLink="/places/new">Add new visit</button>
+    <p>Never forget a travel experience again!</p>
+    <button class="btn btn-primary" routerLink="/places/new">Add a Travel Memory</button>
   </div>
 </div>
-
 
 <div class="col-md-4 col-sm-6 place" *ngFor="let place of allPlaces">
 <div class="panel panel-default">
@@ -21,16 +20,34 @@
       <div class="title">{{place.title}}</div>
       <div class="location">{{place.city}} {{place.state}} {{place.country}}</div>
       <div class="description">{{place.description}}</div>
+      <div class="rating">{{place.rating}}</div>
   </div>
 </a>
- <div class="modify pull-right">
-   <a routerLink="/places/edit/{{place.id}}"><span class="glyphicon glyphicon-edit"></span></a>
-   <a (click)="deletePlace(place)"><span class="glyphicon glyphicon-trash"></span></a>
+
+<div class="row modify pull-right">
+    <a routerLink="/places/edit/{{place.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+    <a (click)="deletePlaceModal.open()"><span class="glyphicon glyphicon-trash"></span></a>
+    <modal #deletePlaceModal>
+        <modal-header>
+            <h3>Are you sure?</h3>
+        </modal-header>
+        <modal-content>
+            Are you sure you want to delete this travel memory?
+        </modal-content>
+        <modal-footer>
+           <button class="btn btn-primary" (click)="deletePlace(place)">Delete</button>
+            <button class="btn btn-secondary" (click)="deletePlaceModal.close()">Cancel</button>
+        </modal-footer>
+    </modal>
+</div>
+
 </div>
 </div>
 </div>
 </div>
-</div>
+
+
+
 <!--
 <div class="places">
   <div class="row" *ngFor="let place of allPlaces">

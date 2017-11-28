@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from "ngx-modal";
 import { PlaceIndexComponent } from './place-index/place-index.component';
 import { PlacesComponent } from './places.component';
 import { PlaceNewComponent } from './place-new/place-new.component';
@@ -14,7 +15,8 @@ import { AlertService } from '../services/index';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ModalModule
   ],
   declarations: [PlaceIndexComponent, PlacesComponent, PlaceNewComponent, PlaceShowComponent, PlaceEditComponent],
   providers: [PlacesService, AlertService]

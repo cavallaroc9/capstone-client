@@ -1,3 +1,13 @@
+.btn-primary{
+  background-color: #ff165e;
+  border: 0;
+}
+
+
+.btn-secondary {
+  border-color: gray;
+}
+
 .center-block {
   float: none;
   margin: 0 auto;
@@ -13,6 +23,12 @@
   margin-bottom: 2px;
   margin-right: 5px;
 }
+
+.description {
+  color: #908f8f;
+  font-size: 11px;
+}
+
 .glyphicon-edit{
   color: #4e76f1;
   font-size:25px;
@@ -25,7 +41,7 @@
 .glyphicon-trash {
   color: #ff165e;
   font-size: 25px;
-  padding-left: 15px;
+  padding: 15px;
 }
 
 .glyphicon-trash:hover {
@@ -47,6 +63,11 @@
 
 .place-image {
   width: 100%;
+}
+
+.rating {
+  color: #908f8f;
+  font-size: 11px;
 }
 
 .title {

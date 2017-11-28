@@ -11,6 +11,14 @@ font-size: 50px;
   border: 0;
 }
 
+.btn-primary:hover {
+  background-color: #ce134d;
+}
+
+.btn-secondary {
+  border-color: gray;
+}
+
 .date {
   text-align: right;
   color: #908f8f;
