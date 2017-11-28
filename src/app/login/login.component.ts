@@ -24,21 +24,23 @@ export class LoginComponent implements OnInit {
 }
 
   ngOnInit() {
+    console.log('on init', this.auth.redirectUrl)
+    if (this.auth.user) {
+    this.router.navigate(["/places/"]);
+  }
   }
 
 
   signIn() {
+    console.log('redirect url', this.auth.redirectUrl)
     this.auth.signIn(this.user.email, this.user.password)
-    if(this.auth.user) {
-      // Get the redirect URL from our auth service
-      // If no redirect has been set, use the default
-      let redirect = this.auth.redirectUrl ? this.auth.redirectUrl : '/';
-
-              // Redirect the user
-              this.router.navigate([redirect]);
+    // if(this.auth.user) {
+    //   // Get the redirect URL from our auth service
+    //   // If no redirect has been set, use the default
+    //   let redirect = this.auth.redirectUrl ? this.auth.redirectUrl : '/';
+    //     console.log('redirect is', redirect)
+    //           // Redirect the user
+    //           this.router.navigate([redirect]);
     }
 
     }
-
-
-}

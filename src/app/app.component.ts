@@ -19,7 +19,7 @@ constructor(
 ) { }
 
   ngOnInit() {
-    this.router.navigate(["/login/"]);
+    // this.router.navigate(["/login/"]);
   }
 
   signOut() {

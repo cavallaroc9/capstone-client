@@ -8,7 +8,8 @@ import { ChangePasswordComponent } from './change-password.component';
 const changePasswordRoutes: Routes = [
     {
         path: 'change-password',
-        component: ChangePasswordComponent
+        component: ChangePasswordComponent,
+        canActivate: [AuthGuard]
     }
 ];
 

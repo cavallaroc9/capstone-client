@@ -6,6 +6,10 @@ h1 {
 font-size: 50px;
 }
 
+img {
+  color: #908f8f;
+}
+
 .btn-primary{
   background-color: #ff165e;
   border: 0;
@@ -26,6 +30,11 @@ font-size: 50px;
   margin-top: -5px;
   margin-bottom: 2px;
   margin-right: 5px;
+}
+
+.description {
+  color: #322e2e;
+  font-size: 13px;
 }
 
 .glyphicon-edit{
