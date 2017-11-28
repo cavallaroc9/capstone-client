@@ -23,6 +23,10 @@
   border-color: gray;
 }
 
+.location-search {
+  margin-bottom: 15px;
+}
+
 .panel-default>.panel-heading {
   background-color: #4841a7;
   color: white;
