@@ -1,5 +1,3 @@
-
-
 a {
   color: white;
   font-size: 25px;
@@ -8,17 +6,22 @@ a {
 
 }
 
-h1 {
-  color: white;
-}
-
-
 a:hover {
   color: white;
   text-decoration: none;
 }
 
+h1 {
+  color: white;
+}
+
+
 .active{
+  text-decoration: underline;
+  text-decoration-color: #ff165e;
+  text-decoration-style: solid;
+}
+.active:hover{
   text-decoration: underline;
   text-decoration-color: #ff165e;
   text-decoration-style: solid;
@@ -32,6 +35,10 @@ a:hover {
 .btn-primary {
   background-color: #ff165e;
   border: 0;
+}
+
+.btn-primary:hover {
+  background-color: #ce134d;
 }
 
 
@@ -52,6 +59,11 @@ a:hover {
 
 .inactive {
   color: rgba(255,255,255,0.5);
+}
+
+.inactive:hover{
+  color: white;
+  text-decoration: none;
 }
 
 .inputs {

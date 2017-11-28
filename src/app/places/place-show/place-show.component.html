@@ -9,10 +9,25 @@
         <div class="location">{{onePlace.city}} {{onePlace.state}} {{onePlace.country}}</div>
         <div class="description">{{onePlace.description}}</div>
         <div class="rating">{{onePlace.rating}}</div>
-        <div class="modify pull-right">
-          <a routerLink="/places/edit/{{onePlace.id}}"><span class="glyphicon glyphicon-edit"></span></a>
-          <a (click)="deletePlace(onePlace)"><span class="glyphicon glyphicon-trash"></span></a>
-       </div>
+
+
+        <div class="row modify pull-right">
+            <a routerLink="/places/edit/{{onePlace.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+            <a (click)="deletePlaceModal.open()"><span class="glyphicon glyphicon-trash"></span></a>
+            <modal #deletePlaceModal>
+                <modal-header>
+                    <h3>Are you sure?</h3>
+                </modal-header>
+                <modal-content>
+                    Are you sure you want to delete this travel memory?
+                </modal-content>
+                <modal-footer>
+                   <button class="btn btn-primary" (click)="deletePlace(onePlace)">Delete</button>
+                    <button class="btn btn-secondary" (click)="deletePlaceModal.close()">Cancel</button>
+                </modal-footer>
+            </modal>
+        </div>
+
   </div>
 </div>
 </div>
