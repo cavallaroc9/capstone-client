@@ -14,6 +14,11 @@ export class PlaceShowComponent implements OnInit {
   onePlace;
   allPlaces = [];
 
+  max = 5;
+  isReadonly = true;
+  overStar: number;
+  percent: number;
+
   constructor(
     private route : ActivatedRoute,
     private router : Router,

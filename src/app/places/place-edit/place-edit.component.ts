@@ -17,6 +17,12 @@ export class PlaceEditComponent implements OnInit {
 
   updatedPlace = <any>{};
 
+  max = 5;
+  isReadonly = false;
+
+  overStar: number;
+  percent: number;
+
   @ViewChild('search') public searchElement: ElementRef;
 
   constructor(
@@ -95,6 +101,13 @@ export class PlaceEditComponent implements OnInit {
        }
           );
   }
+
+
+  hoveringOver(value: number): void {
+  this.overStar = value;
+  this.percent = (value / this.max) * 100;
+}
+
 
   updatePlace(updatedPlace) {
 

@@ -6,7 +6,6 @@
   </div>
 </div>
 
-
 <div class="input-group search-filter">
   <span class="input-group-addon">
     <select [(ngModel)]="selectedFilter" (ngModelChange)="onChange($event)" >
@@ -37,10 +36,15 @@
       <div class="date">{{place.start_date}}</div>
       <div class="title">{{place.title}}</div>
       <div class="location">{{place.city}} {{place.state}} {{place.country}}</div>
-      <div class="description">{{place.description}}</div>
-      <div class="rating">{{place.rating}}</div>
   </div>
 </a>
+
+<div class="pull-left" *ngIf="place.rating > 0">
+    <rating [(ngModel)]="place.rating" [max]="max" [readonly]="isReadonly" style="color: #f9bc00; font-size: 18px;"></rating>
+    <span class="label"
+          [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+          [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+</div>
 
 <div class="row modify pull-right">
     <a routerLink="/places/edit/{{place.id}}"><span class="glyphicon glyphicon-edit"></span></a>
@@ -62,12 +66,10 @@
 </div>
 </div>
 </div>
-
 </div>
-
 
 <div class="no-results" *ngIf="(allPlaces | filterBy: placeFilter).length === 0">
   <img class="img-responsive img-center" src="https://media.giphy.com/media/Nzn4mTqGLauBO/giphy.gif" alt="Not Found">
-<h3> We couldn't find any travel memories.</h3>
+<h3> We couldn't find any travel memories.</h3>
 <h5> Please modify your search and try again.</h5>
 </div>

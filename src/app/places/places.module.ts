@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from "ngx-modal";
+import { RatingModule } from 'ngx-bootstrap/rating';
 import { PlaceIndexComponent } from './place-index/place-index.component';
 import { PlacesComponent } from './places.component';
 import { PlaceNewComponent } from './place-new/place-new.component';
@@ -21,6 +22,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
     RouterModule,
     FormsModule,
     ModalModule,
+    RatingModule.forRoot(),
     FilterPipeModule ,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDO_u2FHozo4P8o-V7YtHs9vcOhEnf79is',

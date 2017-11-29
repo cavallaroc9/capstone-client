@@ -15,52 +15,66 @@
       <div class="place-details">
         <div class="form-group">
           <label for="title">Title:<span class="asterisk"> *</span></label>
-          <input class="form-control" name="place.title" [(ngModel)]="newPlace.title" type="text">
+          <input class="form-control" name="title" [(ngModel)]="newPlace.title" type="text">
         </div>
 
         <div class="form-group">
           <label for="city">City:</label>
-          <input class="form-control" name="place.city" [(ngModel)]="newPlace.city" type="text">
+          <input class="form-control" name="city" [(ngModel)]="newPlace.city" type="text">
         </div>
 
         <div class="form-group">
           <label for="state">State:</label>
-          <input class="form-control" name="place.state" [(ngModel)]="newPlace.state" type="text">
+          <input class="form-control" name="state" [(ngModel)]="newPlace.state" type="text">
         </div>
 
         <div class="form-group">
           <label for="country">Country:<span class="asterisk"> *</span></label>
-          <input class="form-control" name="place.country" [(ngModel)]="newPlace.country" type="text">
+          <input class="form-control" name="country" [(ngModel)]="newPlace.country" type="text">
         </div>
 
         <div class="form-group">
           <label for="description">Description:</label>
-          <textarea class="form-control" name="place.description" [(ngModel)]="newPlace.description" rows="5"></textarea>
+          <textarea class="form-control" name="description" [(ngModel)]="newPlace.description" rows="5"></textarea>
         </div>
 
         <div class="form-group">
           <form action="/action_page.php">
           <label for="start_date">Start Date:</label>
-        <input class="form-control" type="date" name="place.start_date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="YYYY-MM-DD"
+        <input class="form-control" type="date" name="start_date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="YYYY-MM-DD"
        [(ngModel)]="newPlace.start_date" type="date">
      </form>
      </div>
 
      <div class="form-group">
        <label for="end_date">End Date:</label>
-       <input class="form-control" name="place.end_date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
+       <input class="form-control" name="end_date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
       [(ngModel)]="newPlace.end_date" type="date">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="rating">Rating:</label>
       <input class="form-control" name="place.rating"
       [(ngModel)]="newPlace.rating" type="text">
-    </div>
+    </div> -->
+
+<div class="form-group">
+  <label for="rating">Rating:</label>
+  <br>
+    <rating [(ngModel)]="newPlace.rating" [max]="max" [readonly]="isReadonly"
+            (onHover)="hoveringOver($event)" (onLeave)="resetStar()" style="color: #f9bc00; font-size: 18px;"></rating>
+    <span class="label"
+          [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+          [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+</div>
+
+    <!-- <button type="button" class="btn btn-sm btn-primary"
+            (click)="isReadonly = ! isReadonly">Toggle Readonly
+    </button> -->
 
     <div class="form-group">
       <label for="photoUrl">Photo URL:</label>
-      <input class="form-control" name="place.photoUrl"
+      <input class="form-control" name="photoUrl"
     [(ngModel)]="newPlace.photoUrl">
     </div>
 
