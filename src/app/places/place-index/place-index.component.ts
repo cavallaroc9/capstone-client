@@ -11,9 +11,8 @@ import { AlertService } from '../../services/index';
 export class PlaceIndexComponent implements OnInit {
 
   allPlaces = [];
-  // placeFilter: any = { title: ''};
-  placeFilter: any = {};
 
+  placeFilter: any = {};
   filters = [
     {'type': 'title'},
     {'type': 'city'},
@@ -21,8 +20,12 @@ export class PlaceIndexComponent implements OnInit {
     {'type': 'country'}
   ];
   selectedFilter = this.filters[0];
-
   filterValue;
+
+  max = 5;
+  isReadonly = true;
+  overStar: number;
+  percent: number;
 
   constructor(
     private placesService : PlacesService,

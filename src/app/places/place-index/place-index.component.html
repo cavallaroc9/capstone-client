@@ -19,10 +19,15 @@
       <div class="date">{{place.start_date}}</div>
       <div class="title">{{place.title}}</div>
       <div class="location">{{place.city}} {{place.state}} {{place.country}}</div>
-      <div class="description">{{place.description}}</div>
-      <div class="rating">{{place.rating}}</div>
   </div>
 </a>
+
+<div class="pull-left" *ngIf="place.rating > 0">
+    <rating [(ngModel)]="place.rating" [max]="max" [readonly]="isReadonly" style="color: #f9bc00; font-size: 18px;"></rating>
+    <span class="label"
+          [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+          [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+</div>
 
 <div class="row modify pull-right">
     <a routerLink="/places/edit/{{place.id}}"><span class="glyphicon glyphicon-edit"></span></a>
@@ -45,32 +50,3 @@
 </div>
 </div>
 </div>
-
-
-
-<!--
-<div class="places">
-  <div class="row" *ngFor="let place of allPlaces">
-    <ul>
-      <img [src]="place.photoUrl" [alt]="place.title">
-      <li>
-        <h2>
-          <a routerLink="/places/{{place.id}}">
-            {{place.title}}
-          </a>
-        </h2>
-      </li>
-      <li>
-        <a routerLink="/places/edit/{{place.id}}">
-          Edit
-        </a>
-      </li>
-      <li>
-        <form (ngSubmit)="deletePlace(place)">
-          <input type="submit" value="Delete"/>
-        </form>
-      </li>
-    </ul>
-  </div>
-</div>
-</div> -->>

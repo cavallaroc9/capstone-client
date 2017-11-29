@@ -18,7 +18,6 @@ export class PlaceNewComponent implements OnInit {
 
   max = 5;
   isReadonly = false;
-
   overStar: number;
   percent: number;
 
