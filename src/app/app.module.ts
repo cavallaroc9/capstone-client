@@ -36,9 +36,7 @@ import { AlertService } from './services/index';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 
-
-
-
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 
 @NgModule({
@@ -62,6 +60,7 @@ import { AuthGuard } from './services/auth-guard.service';
     PlaceRoutingModule,
     RegisterRoutingModule,
     ChangePasswordRoutingModule,
+    FilterPipeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDO_u2FHozo4P8o-V7YtHs9vcOhEnf79is',
       libraries: ['places']

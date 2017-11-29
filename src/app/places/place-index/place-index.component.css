@@ -10,6 +10,18 @@ img {
   color: #908f8f;
 }
 
+select {
+  border: 1px solid #e00f53;
+  color: white;
+  padding: 5px 35px 5px 5px;
+  font-size: 14px;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(http://sebastiandamm.dk/16-12-2016/img/icons/dropdown.png) 96% / 15% no-repeat #f4165e;;
+}
+
 .btn-primary{
   background-color: #ff165e;
   border: 0;
@@ -75,9 +87,15 @@ img {
   color: white;
 }
 
+.input-group-addon {
+  width:0px;
+  padding: 0;
+  border:none;
+}
+
 .location {
-  font-size: 16px;
   color: #322e2e;
+  font-size: 16px;
 }
 
 .modify {
@@ -94,6 +112,11 @@ img {
 
 .place-image {
   width: 100%;
+}
+
+.search-filter {
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 .title {

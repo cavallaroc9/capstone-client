@@ -6,7 +6,25 @@
   </div>
 </div>
 
-<div class="col-md-4 col-sm-6 place" *ngFor="let place of allPlaces">
+
+<div class="input-group search-filter">
+  <span class="input-group-addon">
+    <select [(ngModel)]="selectedFilter" (ngModelChange)="onChange($event)" >
+    <option *ngFor="let f of filters" [ngValue]="f"> {{f.type}} </option>
+    </select>
+  </span>
+
+  <input *ngIf="selectedFilter.type === 'title' || filterValue === 'title'" class="form-control" type="text" [(ngModel)]="placeFilter.title" placeholder="Search by Title">
+
+  <input *ngIf="filterValue === 'city'" class="form-control" type="text" [(ngModel)]="placeFilter.city" placeholder="Search by City">
+
+  <input *ngIf="filterValue === 'state'" class="form-control" type="text" [(ngModel)]="placeFilter.state" placeholder="Search by State">
+
+  <input *ngIf="filterValue === 'country'" class="form-control" type="text" [(ngModel)]="placeFilter.country" placeholder="Search by Country">
+</div>
+
+<div class="col-md-4 col-sm-6 place" *ngFor="let place of allPlaces | filterBy: placeFilter">
+
 <div class="panel panel-default">
 <div class="panel-body">
     <a routerLink="/places/{{place.id}}">
@@ -44,33 +62,8 @@
 </div>
 </div>
 </div>
+
 </div>
 
 
-
-<!--
-<div class="places">
-  <div class="row" *ngFor="let place of allPlaces">
-    <ul>
-      <img [src]="place.photoUrl" [alt]="place.title">
-      <li>
-        <h2>
-          <a routerLink="/places/{{place.id}}">
-            {{place.title}}
-          </a>
-        </h2>
-      </li>
-      <li>
-        <a routerLink="/places/edit/{{place.id}}">
-          Edit
-        </a>
-      </li>
-      <li>
-        <form (ngSubmit)="deletePlace(place)">
-          <input type="submit" value="Delete"/>
-        </form>
-      </li>
-    </ul>
-  </div>
-</div>
-</div> -->
+<div *ngIf="(allPlaces | filterBy: placeFilter).length === 0">No matching elements</div>

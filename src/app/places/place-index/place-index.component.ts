@@ -11,7 +11,18 @@ import { AlertService } from '../../services/index';
 export class PlaceIndexComponent implements OnInit {
 
   allPlaces = [];
+  // placeFilter: any = { title: ''};
+  placeFilter: any = {};
 
+  filters = [
+    {'type': 'title'},
+    {'type': 'city'},
+    {'type': 'state'},
+    {'type': 'country'}
+  ];
+  selectedFilter = this.filters[0];
+
+  filterValue;
 
   constructor(
     private placesService : PlacesService,
@@ -20,6 +31,8 @@ export class PlaceIndexComponent implements OnInit {
 
   ngOnInit() {
     let errMessage: string = 'Oops, something went wrong. Please try again or refresh the page!';
+
+    console.log('selected filter', this.selectedFilter)
 
     this.placesService.getAllPlaces()
   		.subscribe(
@@ -37,6 +50,12 @@ export class PlaceIndexComponent implements OnInit {
     );
   }
 
+    onChange(filters) {
+      this.placeFilter = {};
+      this.filterValue = filters.type;
+      this.placeFilter[filters.type] = '';
+      console.log('place filter is', this.placeFilter);
+    }
 
     deletePlace(deletedPlace) {
       let successMessage: string = 'Your place was successfully deleted!';
