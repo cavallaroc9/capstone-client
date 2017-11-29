@@ -1,6 +1,6 @@
 <div class="overlay">
   <alert></alert>
-  <h1>*Traveler</h1>
+  <h1><span class="glyphicon glyphicon-globe"></span>MyTravel Memories</h1>
 <div class="container col-xs-10 col-md-4 center-block" *ngIf="!auth.user">
   <a class="inactive" routerLink="/login/">Sign In</a>
   <a class="active">Register</a>
@@ -11,7 +11,7 @@
   <br>
   <input class="form-control" [(ngModel)]="newUser.password_confirmation" type="password" placeholder="Confirm Passsword"/>
   <br>
-  <input class="btn btn-primary" (click)="signUp()" type="submit" value="Sign Up"/>
+  <input class="btn btn-primary" (click)="signUp()" type="submit" value="Register"/>
 </div>
 </div>
 </div>

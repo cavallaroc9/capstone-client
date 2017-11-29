@@ -1,8 +1,9 @@
 <div class="hero-image">
   <div class="hero-text">
-    <h1>TRACK YOUR TRAVELS</h1>
-    <p>Never forget a travel experience again!</p>
-    <button class="btn btn-primary" routerLink="/places/new">Add a Travel Memory</button>
+
+    <h1>TRACK YOUR TRAVEL MEMORIES</h1>
+    <p>Never forget another travel experience</p>
+    <button class="btn btn-primary btn-lg" routerLink="/places/new">Add Travel Memory</button>
   </div>
 </div>
 
@@ -27,9 +28,10 @@
 <div class="panel panel-default">
 <div class="panel-body">
     <a routerLink="/places/{{place.id}}">
-      <div class="place-image"><img class="img-responsive" [src]="place.photoUrl" [alt]="place.title">
-      </div>
+
       <div *ngIf="!place.photoUrl" class="place-image"><img class="img-responsive" src="https://i.imgur.com/gO1Fktp.png" alt="Image URL Not Found">
+      </div>
+      <div *ngIf="place.photoUrl" class="place-image"><img class="img-responsive" [src]="place.photoUrl" alt="Travel Image">
       </div>
 
 </a>
@@ -72,7 +74,7 @@
 </div>
 
 <div class="no-results" *ngIf="(allPlaces | filterBy: placeFilter).length === 0">
-  <img class="img-responsive img-center" src="https://media.giphy.com/media/Nzn4mTqGLauBO/giphy.gif" alt="Not Found">
-<h3> We couldn't find any travel memories.</h3>
+  <img class="img-responsive img-center" src="https://media.giphy.com/media/sxHXgX2OawKc/giphy.gif" alt="Not Found">
+<h3> We couldn't find any travel memories...</h3>
 <h5> Please modify your search and try again.</h5>
 </div>

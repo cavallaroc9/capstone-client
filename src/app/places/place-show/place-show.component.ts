@@ -27,7 +27,7 @@ export class PlaceShowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let errMessage: string = 'Oops, something went wrong retrieving your place. Please try again or refresh the page!';
+    let errMessage: string = 'Oops, something went wrong retrieving your travel memory. Please try again or refresh the page!';
 
 
     this.route.params.forEach( param => {
@@ -50,8 +50,8 @@ export class PlaceShowComponent implements OnInit {
 
 
     deletePlace(deletedPlace) {
-      let successMessage: string = 'Your place was successfully deleted!';
-      let errMessage: string = 'Oops, something went wrong deleting your place. Please try again or refresh the page!';
+      let successMessage: string = 'Your travel memory was successfully deleted!';
+      let errMessage: string = 'Oops, something went wrong deleting your travel memory. Please try again or refresh the page!';
 
     this.placesService.deletePlace(deletedPlace)
     .subscribe(

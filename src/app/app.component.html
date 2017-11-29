@@ -8,9 +8,11 @@
     <nav class="navbar navbar-inverse">
     <div class="container-fluid" *ngIf="auth.user">
       <div class="navbar-header">
-        <a class="navbar-brand">Traveler</a>
+
+        <div class="navbar-brand"><span class="glyphicon glyphicon-globe"></span>MyTravel Memories</div>
     </div>
       <div>
+
         <ul class="nav navbar-nav pull-right">
             <li><a class="nav-link" routerLink="/places">Home</a></li>
             <li><a class="nav-link" routerLink="/change-password">Change Password</a></li>

@@ -10,8 +10,7 @@ import { AuthService } from './services/auth.service';
 })
 
 export class AppComponent {
-  title = 'app';
-  apiOrigin = environment.apiOrigin;
+
 
 constructor(
   public auth: AuthService,

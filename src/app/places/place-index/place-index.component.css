@@ -6,10 +6,6 @@ h1 {
 font-size: 50px;
 }
 
-img {
-  color: #908f8f;
-}
-
 select {
   border: 1px solid #e00f53;
   color: white;
@@ -64,7 +60,7 @@ select {
 }
 
 .hero-image {
-    background-image: url(http://deskbg.com/s3/wpp/1/1470/france-snow-lake-desktop-background.jpg);
+  background-image: url(http://deskbg.com/s3/wpp/1/1470/france-snow-lake-desktop-background.jpg);
   height: 450px;
   background-position: center;
   background-repeat: no-repeat;

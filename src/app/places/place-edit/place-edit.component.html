@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-md-6 col-lg-6 center-block">
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h4> Update Travel Memory</h4>
+    <h4>Update Travel Memory</h4>
 </div>
   <div class="panel-body">
 
@@ -50,12 +50,6 @@
       [(ngModel)]="updatedPlace.end_date" type="date">
     </div>
 
-    <!-- <div class="form-group">
-      <label for="rating">Rating:</label>
-      <input class="form-control" name="place.rating"
-      [(ngModel)]="updatedPlace.rating" type="text">
-    </div> -->
-
     <div class="form-group">
       <label for="rating">Rating:</label>
       <br>
@@ -66,11 +60,6 @@
               [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
     </div>
 
-    <!-- <div class="form-group">
-      <label for="photoUrl">Photo URL:</label>
-      <input class="form-control" name="place.photoUrl"
-    [(ngModel)]="updatedPlace.photoUrl">
-    </div> -->
 
     <div class="form-group">
     <label for="photoUrl">Image Address URL:</label>
@@ -86,41 +75,3 @@
   </div>
 </div>
 </div>
-
-
-<!-- <h2>Edit Place</h2>
-
-<form (ngSubmit)="updatePlace(updatedPlace)">
-  <label for="title">Title:</label>
-  <input name="place.title" [(ngModel)]="updatedPlace.title">
-
-  <label for="city">City:</label>
-  <input name="place.city" [(ngModel)]="updatedPlace.city">
-
-  <label for="state">State:</label>
-  <input name="place.state" [(ngModel)]="updatedPlace.state">
-
-  <label for="country">Country:</label>
-  <input name="place.country" [(ngModel)]="updatedPlace.country">
-
-  <label for="description">Description:</label>
-  <input name="place.description" [(ngModel)]="updatedPlace.description">
-
-  <label for="start_date">Start Date:</label>
-  <input name="place.start_date"
- [(ngModel)]="updatedPlace.start_date">
-
- <label for="end_date">End Date:</label>
- <input name="place.end_date"
-[(ngModel)]="updatedPlace.end_date">
-
-<label for="rating">Rating:</label>
-<input name="place.rating"
-[(ngModel)]="updatedPlace.rating">
-
-<label for="photoUrl">Photo URL:</label>
-<input name="place.photoUrl"
-[(ngModel)]="updatedPlace.photoUrl">
-
-  <input type="submit" value="Update">
-</form> -->

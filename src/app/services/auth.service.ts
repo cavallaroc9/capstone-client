@@ -88,7 +88,7 @@ signUp(email: string, password: string, password_confirmation: string) {
 
   let errConfirmPasswordMessage: string = 'Confirm Password is a required field.';
 
-  let errTakenMessage: string = 'Sorry, that email is aleady taken. Please choose a different email.';
+  let errTakenMessage: string = 'Sorry, that email is already taken. Please choose a different email.';
 
   let errMessage: string = 'Oops, something went wrong. Please try registering again!';
 
