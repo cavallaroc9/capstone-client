@@ -13,12 +13,15 @@ import { AlertService } from '../services/index';
 
 import { AgmCoreModule } from '@agm/core';
 
+import { FilterPipeModule } from 'ngx-filter-pipe';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ModalModule,
+    FilterPipeModule ,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDO_u2FHozo4P8o-V7YtHs9vcOhEnf79is',
       libraries: ['places']
