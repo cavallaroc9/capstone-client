@@ -13,6 +13,8 @@ a:hover {
 
 h1 {
   color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
 }
 
 
@@ -71,7 +73,7 @@ h1 {
 }
 
 .overlay{
-    background-image: url(https://www.walldevil.com/wallpapers/a14/lake-bigpic-wallpaper-pictures-clear-stars-night-landscape-reflection-mountains-wallpapers.jpg);
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/25/79/11/257911f2e20a88f67c73e1054316acac.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;

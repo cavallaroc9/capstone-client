@@ -3,7 +3,16 @@ a:hover{
 }
 
 h1 {
+color: #ccfffb;
+font-family: 'Open Sans', sans-serif;
 font-size: 50px;
+text-shadow: 1px 1px #565656;
+}
+
+h3 {
+font-family: 'Sriracha', cursive;
+margin-bottom: 20px;
+
 }
 
 select {
