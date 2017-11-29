@@ -27,5 +27,9 @@ export class ChangePasswordComponent implements OnInit {
     this.auth.changePassword(this.oldPassword, this.newPassword);
   }
 
+  cancelChange() {
+    this.router.navigate(["/places"]);
+  }
+
 
 }
