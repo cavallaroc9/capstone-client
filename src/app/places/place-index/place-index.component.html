@@ -22,13 +22,16 @@
   <input *ngIf="filterValue === 'country'" class="form-control" type="text" [(ngModel)]="placeFilter.country" placeholder="Search by Country">
 </div>
 
-<div class="col-md-4 col-sm-6 place" *ngFor="let place of allPlaces | filterBy: placeFilter">
+<div class="col-md-lg col-md-4 col-sm-6 place" *ngFor="let place of allPlaces | filterBy: placeFilter">
 
 <div class="panel panel-default">
 <div class="panel-body">
     <a routerLink="/places/{{place.id}}">
-<div class="place-image"><img class="img-responsive" [src]="place.photoUrl" [alt]="place.title">
-</div>
+      <div class="place-image"><img class="img-responsive" [src]="place.photoUrl" [alt]="place.title">
+      </div>
+      <div *ngIf="!place.photoUrl" class="place-image"><img class="img-responsive" src="https://i.imgur.com/gO1Fktp.png" alt="Image URL Not Found">
+      </div>
+
 </a>
   <div class="panel-body">
     <a routerLink="/places/{{place.id}}">

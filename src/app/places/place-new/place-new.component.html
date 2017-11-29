@@ -52,11 +52,6 @@
       [(ngModel)]="newPlace.end_date" type="date">
     </div>
 
-    <!-- <div class="form-group">
-      <label for="rating">Rating:</label>
-      <input class="form-control" name="place.rating"
-      [(ngModel)]="newPlace.rating" type="text">
-    </div> -->
 
 <div class="form-group">
   <label for="rating">Rating:</label>
@@ -68,15 +63,20 @@
           [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
 </div>
 
-    <!-- <button type="button" class="btn btn-sm btn-primary"
-            (click)="isReadonly = ! isReadonly">Toggle Readonly
-    </button> -->
-
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="photoUrl">Photo URL:</label>
       <input class="form-control" name="photoUrl"
     [(ngModel)]="newPlace.photoUrl">
+    </div> -->
+
+    <div class="form-group">
+    <label for="photoUrl">Image Address URL:</label>
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+    <input class="form-control" name="photoUrl" type="text" [(ngModel)]="newPlace.photoUrl">
     </div>
+  </div>
+
 
       <input class="btn btn-primary" (click)="savePlace(newPlace)" type="submit" value="Save"/>
       <input class="btn btn-secondary" (click)="cancelPlace()" type="submit" value="Cancel"/>
