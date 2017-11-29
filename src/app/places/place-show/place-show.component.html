@@ -5,11 +5,17 @@
     </div>
       <div class="place-details">
         <div class="date">{{onePlace.start_date}}</div>
+        <div class="date">{{onePlace.end_date}}</div>
         <div class="title">{{onePlace.title}}</div>
         <div class="location">{{onePlace.city}} {{onePlace.state}} {{onePlace.country}}</div>
         <div class="description">{{onePlace.description}}</div>
-        <div class="rating">{{onePlace.rating}}</div>
 
+        <div class="pull-left" *ngIf="onePlace.rating > 0">
+            <rating [(ngModel)]="onePlace.rating" [max]="max" [readonly]="isReadonly" style="color: #f9bc00; font-size: 18px;"></rating>
+            <span class="label"
+                  [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                  [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+        </div>
 
         <div class="row modify pull-right">
             <a routerLink="/places/edit/{{onePlace.id}}"><span class="glyphicon glyphicon-edit"></span></a>
