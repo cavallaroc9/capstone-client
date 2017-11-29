@@ -5,7 +5,7 @@
     </div>
       <div class="place-details">
         <div class="date">{{onePlace.start_date}}</div>
-        <div class="date">{{onePlace.end_date}}</div>
+        <div *ngIf="onePlace.start_date !== onePlace.end_date" class="date">{{onePlace.end_date}}</div>
         <div class="title">{{onePlace.title}}</div>
         <div class="location">{{onePlace.city}} {{onePlace.state}} {{onePlace.country}}</div>
         <div class="description">{{onePlace.description}}</div>
