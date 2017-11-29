@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {ModalModule} from "ngx-modal";
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 import { HttpModule } from '@angular/http';
 
@@ -50,6 +51,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
   imports: [
     BrowserModule,
     ModalModule,
+    RatingModule.forRoot(),
     LoginRoutingModule,
     AppRoutingModule,
     FormsModule,
