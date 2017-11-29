@@ -50,10 +50,20 @@
       [(ngModel)]="updatedPlace.end_date" type="date">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="rating">Rating:</label>
       <input class="form-control" name="place.rating"
       [(ngModel)]="updatedPlace.rating" type="text">
+    </div> -->
+
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <br>
+        <rating [(ngModel)]="updatedPlace.rating" [max]="max" [readonly]="isReadonly"
+                (onHover)="hoveringOver($event)" style="color: #f9bc00; font-size: 18px;"></rating>
+        <span class="label"
+              [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+              [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
     </div>
 
     <div class="form-group">
