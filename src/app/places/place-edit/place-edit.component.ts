@@ -35,7 +35,7 @@ export class PlaceEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let errMessage: string = 'Oops, something went wrong retrieving your place. Please try again or refresh the page!';
+    let errMessage: string = 'Oops, something went wrong retrieving your travel memory. Please try again or refresh the page!';
 
     this.route.params.forEach( param => {
       this.placesService.getOnePlace(param.id)
@@ -111,13 +111,13 @@ export class PlaceEditComponent implements OnInit {
 
   updatePlace(updatedPlace) {
 
-    let successMessage: string = 'Your place was successfully updated!';
+    let successMessage: string = 'Your travel memory was successfully updated!';
 
     let errTitleMessage: string = 'Title is a required field.';
 
     let errCountryMessage: string = 'Country is a required field.';
 
-    let errMessage: string = 'Oops, something went wrong updating your place. Please try again or refresh the page!';
+    let errMessage: string = 'Oops, something went wrong updating your travel memory. Please try again or refresh the page!';
 
   console.log("updating example yo!");
   this.placesService.updatePlace(updatedPlace)

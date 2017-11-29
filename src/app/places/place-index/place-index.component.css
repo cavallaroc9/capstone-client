@@ -3,11 +3,16 @@ a:hover{
 }
 
 h1 {
+color: #ccfffb;
+font-family: 'Open Sans', sans-serif;
 font-size: 50px;
+text-shadow: 1px 1px #565656;
 }
 
-img {
-  color: #908f8f;
+h3 {
+font-family: 'Sriracha', cursive;
+margin-bottom: 20px;
+
 }
 
 select {
@@ -64,7 +69,7 @@ select {
 }
 
 .hero-image {
-    background-image: url(http://deskbg.com/s3/wpp/1/1470/france-snow-lake-desktop-background.jpg);
+  background-image: url(http://deskbg.com/s3/wpp/1/1470/france-snow-lake-desktop-background.jpg);
   height: 450px;
   background-position: center;
   background-repeat: no-repeat;

@@ -2,6 +2,19 @@
  border: 0;
 }
 
+.navbar-brand {
+  font-size: 25px;
+}
+
+.navbar-inverse .navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
 .nav-link {
-  font-size: 15px;
+  font-size: 18px;
+}
+
+.glyphicon-globe {
+  font-size: 25px;
 }

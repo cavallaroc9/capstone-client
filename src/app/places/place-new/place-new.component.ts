@@ -94,13 +94,13 @@ resetStar(): void {
 
     savePlace(newPlace) {
 
-      let successMessage: string = 'New Place was successfully added!';
+      let successMessage: string = 'Travel memory was successfully saved!';
 
       let errTitleMessage: string = 'Title is a required field.';
 
       let errCountryMessage: string = 'Country is a required field.';
 
-      let errMessage: string = 'Oops, something went wrong saving your place. Please try again or refresh the page!';
+      let errMessage: string = 'Oops, something went wrong saving your travel memory. Please try again or refresh the page!';
 
     	console.log("saving place");
     	console.log(newPlace);
