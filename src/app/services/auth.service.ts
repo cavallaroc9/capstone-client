@@ -56,7 +56,6 @@ signIn(email: string, password: string) {
      },
      err => {
        this.alertService.clear();
-       console.log('err', err);
         if (!email) {
           this.alertService.error(errEmailMessage);
         } if (!password) {
@@ -102,7 +101,6 @@ signUp(email: string, password: string, password_confirmation: string) {
        },
        err => {
          this.alertService.clear();
-      console.log('err', err);
       if (!email) {
         this.alertService.error(errEmailMessage);
       } if (!password) {
@@ -133,14 +131,11 @@ signUp(email: string, password: string, password_confirmation: string) {
         // Remove the logged in user.
         data => {
           this.user = null;
-          console.log(this.user);
           this.router.navigate(["/login/"]);
         },
         err => {
           this.alertService.clear();
-          console.log(err);
           this.alertService.error(errMessage);
-
         }
       )
   }
@@ -174,19 +169,16 @@ signUp(email: string, password: string, password_confirmation: string) {
           this.http.patch(environment.apiOrigin + '/change-password/' + this.user.id, passwords, config)
             .subscribe(
               data => {
-                console.log('Success', this.user.email);
                 this.router.navigate(["/places/"]);
                 this.alertService.success(successMessage);
               },
               err => {
                 this.alertService.clear();
-             console.log('err', err);
               if (!oldPassword) {
                this.alertService.error(errOldMessage);
              } if (!newPassword) {
               this.alertService.error(errNewMessage);
             } else if (oldPassword && newPassword) {
-              console.log(err);
               this.alertService.error(errMessage);
             }
               }

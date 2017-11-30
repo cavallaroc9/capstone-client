@@ -9,35 +9,29 @@ export class PlacesService {
 
 	getAllPlaces() {
 
-    let config = {}
+    let config = {};
 
      let errMessage: string = 'Oops, something went wrong. Please refresh and try again!';
 
-    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
-    console.log('auth', this.authService.getUserToken())
-    console.log('from getAllPlaces')
-		return this.http.get(`${environment.apiOrigin}/places`, config)
+    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()};
+		return this.http.get(`${environment.apiOrigin}/places`, config);
 	}
 
 	getOnePlace(placeId) {
     // Create the configuration object to be able to store the Headers > Authentication
-    let config = {}
+    let config = {};
 
     // Set the headers key
     config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
-    console.log('auth', this.authService.getUserToken())
-		console.log(placeId);
 		return this.http.get(`${environment.apiOrigin}/places/${placeId}`, config);
 	}
 
 	deletePlace(place) {
 
-    let config = {}
+    let config = {};
 
-    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
-    console.log('auth', this.authService.getUserToken())
+    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()};
 
-		console.log('delete service place.id is', place.id);
 		return this.http.delete(`${environment.apiOrigin}/places/${place.id}`, config);
 	}
 
@@ -54,13 +48,11 @@ export class PlacesService {
         'rating': newPlace.rating,
         'photoUrl': newPlace.photoUrl,
       }
-    }
+    };
 
-    let config = {}
+    let config = {};
 
-    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
-console.log('auth', this.authService.getUserToken())
-		console.log('from place service', place);
+    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()};
 		return this.http.post(`${environment.apiOrigin}/places/`, place, config);
 	}
 
@@ -77,12 +69,12 @@ console.log('auth', this.authService.getUserToken())
         'rating': updatedPlace.rating,
         'photoUrl': updatedPlace.photoUrl
       }
-    }
-    let config = {}
+    };
+
+    let config = {};
 
 
-    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()}
-    console.log('from update service', updatedPlace.id, updatedPlace.text)
+    config['headers'] = { Authorization:'Token token=' + this.authService.getUserToken()};
 		return this.http.put(`${environment.apiOrigin}/places/${updatedPlace.id}`, place, config);
 	}
 

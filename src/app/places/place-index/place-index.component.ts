@@ -35,18 +35,13 @@ export class PlaceIndexComponent implements OnInit {
   ngOnInit() {
     let errMessage: string = 'Oops, something went wrong retrieving your travel memories. Please try again or refresh the page!';
 
-    console.log('selected filter', this.selectedFilter)
-
     this.placesService.getAllPlaces()
   		.subscribe(
         response => {
           window.scrollTo(0, 0);
-          console.log('response is', response.json());
           this.allPlaces = response.json()['places'];
-          console.log('all places are', (this.allPlaces));
 			},
       err => {
-        console.log('err', err);
         window.scrollTo(0, 0);
         this.alertService.error(errMessage);
       }
@@ -57,7 +52,6 @@ export class PlaceIndexComponent implements OnInit {
       this.placeFilter = {};
       this.filterValue = filters.type;
       this.placeFilter[filters.type] = '';
-      console.log('place filter is', this.placeFilter);
     }
 
     deletePlace(deletedPlace) {

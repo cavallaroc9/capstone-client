@@ -42,7 +42,6 @@ export class PlaceEditComponent implements OnInit {
       .subscribe(
         response => {
         window.scrollTo(0, 0);
-        console.log('from edit', response.json());
         this.updatedPlace = response.json()['place'];
       },
       err => {
@@ -71,13 +70,10 @@ export class PlaceEditComponent implements OnInit {
           this.updatedPlace['country'] = '';
 
           let resultPlace: google.maps.places.PlaceResult = autocomplete.getPlace();
-          console.log('place is', resultPlace);
-
 
           for (var i = 0; i < resultPlace.address_components.length; i++) {
                     let addressType = resultPlace.address_components[i].types[0];
-                    console.log('addressType is', addressType)
-                    console.log('component', componentForm)
+
                     if (componentForm[addressType]) {
                       if (addressType === 'locality') {
                         let val = resultPlace.address_components[i][componentForm[addressType]];
@@ -90,7 +86,7 @@ export class PlaceEditComponent implements OnInit {
                         this.updatedPlace['country'] = val;
                       }
                     }
-                    console.log ('place is ', this.updatedPlace)
+
                   }
 
           if(resultPlace.geometry === undefined || resultPlace.geometry === null ){
@@ -119,7 +115,6 @@ export class PlaceEditComponent implements OnInit {
 
     let errMessage: string = 'Oops, something went wrong updating your travel memory. Please try again or refresh the page!';
 
-  console.log("updating place yo!");
   this.placesService.updatePlace(updatedPlace)
   .subscribe(
     response => {

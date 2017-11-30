@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
 }
 
   ngOnInit() {
-    console.log('on init', this.auth.redirectUrl)
     if (this.auth.user) {
     this.router.navigate(["/places/"]);
   }
@@ -26,7 +25,6 @@ export class LoginComponent implements OnInit {
 
 
   signIn() {
-    console.log('redirect url', this.auth.redirectUrl)
     this.auth.signIn(this.user.email, this.user.password)
     this.user.email = '';
     this.user.password = '';
