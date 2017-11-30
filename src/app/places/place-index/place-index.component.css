@@ -129,6 +129,11 @@ select {
   width: 100%;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .search-filter {
   margin-left: 15px;
   margin-top: 15px;
