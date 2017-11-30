@@ -9,7 +9,7 @@ Once signed in, registered users can:
 - Delete travel memories
 - Change Password
 -
-[![App Screenshot](https://imgur.com/ovsJTAH)]
+[![App Screenshot](https://i.imgur.com/ovsJTAH.png)]
 
 ## Links
 
