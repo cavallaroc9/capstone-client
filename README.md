@@ -8,9 +8,8 @@ Once signed in, registered users can:
 - View travel memories
 - Delete travel memories
 - Change Password
-- 
-[App Screenshot](https://i.imgur.com/ovsJTAH.png)
-
+-
+[![App Screenshot](https://imgur.com/ovsJTAH)]
 
 ## Links
 
