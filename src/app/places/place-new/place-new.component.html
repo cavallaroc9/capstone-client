@@ -41,15 +41,14 @@
         <div class="form-group">
           <form action="/action_page.php">
           <label for="start_date">Start Date:</label>
-        <input class="form-control" type="date" name="start_date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="YYYY-MM-DD"
+        <input class="form-control" type="date" name="start_date" placeholder="e.g. YYYY-MM-DD"
        [(ngModel)]="newPlace.start_date" type="date">
      </form>
      </div>
 
      <div class="form-group">
        <label for="end_date">End Date:</label>
-       <input class="form-control" name="end_date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
-      [(ngModel)]="newPlace.end_date" type="date">
+       <input class="form-control" name="end_date" placeholder="e.g. YYYY-MM-DD" [(ngModel)]="newPlace.end_date" type="date">
     </div>
 
 
