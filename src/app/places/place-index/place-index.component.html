@@ -23,6 +23,7 @@
   <input *ngIf="filterValue === 'country'" class="form-control" type="text" [(ngModel)]="placeFilter.country" placeholder="Search by Country">
 </div>
 
+<div class="row">
 <div class="col-md-lg col-md-4 col-sm-6 place" *ngFor="let place of allPlaces | filterBy: placeFilter">
 
 <div class="panel panel-default">
@@ -68,6 +69,7 @@
     </modal>
 </div>
 
+</div>
 </div>
 </div>
 </div>
