@@ -73,7 +73,7 @@ h1 {
 }
 
 .overlay{
-    background-image: url(http://iliketowastemytime.com/sites/default/files/northern-norway.jpg);
+    background-image: url(https://raw.githubusercontent.com/cavallaroc9/capstone-client/master/src/assets/images/northern-norway-background.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
