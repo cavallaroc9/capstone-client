@@ -30,7 +30,7 @@
 <div class="panel-body">
     <a routerLink="/places/{{place.id}}">
 
-      <div *ngIf="!place.photoUrl" class="place-image"><img class="img-responsive" src="https://i.imgur.com/gO1Fktp.png" alt="Image URL Not Found">
+      <div *ngIf="!place.photoUrl" class="place-image"><img class="img-responsive" src="https://raw.githubusercontent.com/cavallaroc9/capstone-client/master/src/assets/images/no-image.png" alt="Image URL Not Found">
       </div>
       <div *ngIf="place.photoUrl" class="place-image"><img class="img-responsive" [src]="place.photoUrl" alt="Travel Image">
       </div>
