@@ -119,7 +119,7 @@ export class PlaceEditComponent implements OnInit {
 
     let errMessage: string = 'Oops, something went wrong updating your travel memory. Please try again or refresh the page!';
 
-  console.log("updating example yo!");
+  console.log("updating place yo!");
   this.placesService.updatePlace(updatedPlace)
   .subscribe(
     response => {
