@@ -9,8 +9,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  user = <any>{};
-
   oldPassword: string
   newPassword: string
 
@@ -25,6 +23,8 @@ export class ChangePasswordComponent implements OnInit {
 
   changePassword() {
     this.auth.changePassword(this.oldPassword, this.newPassword);
+    this.oldPassword = '';
+    this.newPassword = '';
   }
 
   cancelChange() {
