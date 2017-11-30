@@ -87,7 +87,7 @@ I was able to find almost all of my answers by searching Google. I was able to f
 * [Login / Register](https://wireframe.cc/rPpsQn)
 * [Home Page](https://wireframe.cc/xLAWi6)
 * [Update / Add New](https://wireframe.cc/jiuJcd)
-* [View One Resource] (https://wireframe.cc/9bnyUC)
+* [View One Resource](https://wireframe.cc/9bnyUC)
 
 ## User Stories
 * As a user, I would like to register so that I can create an account.
