@@ -46,7 +46,7 @@ select {
 .date {
   text-align: right;
   color: #908f8f;
-  font-size: 12px;
+  font-size: 11px;
   margin-top: -5px;
   margin-bottom: 2px;
   margin-right: 5px;
@@ -105,7 +105,7 @@ select {
 
 .location {
   color: #322e2e;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .no-results {
@@ -135,7 +135,7 @@ select {
 }
 
 .title {
-  font-size: 25px;
+  font-size: 18px;
   color: #322e2e;
   margin-bottom: -2px;
 }
