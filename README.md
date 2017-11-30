@@ -8,8 +8,9 @@ Once signed in, registered users can:
 - View travel memories
 - Delete travel memories
 - Change Password
+- 
+[App Screenshot](https://i.imgur.com/ovsJTAH.png)
 
-![image](https://raw.githubusercontent.com/cavallaroc9/capstone-client/master/src/assets/images/app-image.png)
 
 ## Links
 
