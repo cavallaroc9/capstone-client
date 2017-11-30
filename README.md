@@ -56,12 +56,12 @@ Once signed in, registered users can:
   - In case a user wants to delete a travel memory, a warning modal will pop up asking the user if they are sure they want to delete the travel memory. If they proceed, the travel memory will be deleted. If they cancel, the memory is safe and not erased!
 
 ## Dependencies
-`npm install bootstrap ngx-bootstrap --save`
-`npm install -g angular-cli-ghpages`
-`npm install -s angular-cli-ghpages`
-`npm install ngx-modal --save`
-`npm install @types/googlemaps --save-dev`
-`npm install ngx-filter-pipe --save`
+* `npm install bootstrap ngx-bootstrap --save`
+* `npm install -g angular-cli-ghpages`
+* `npm install -s angular-cli-ghpages`
+* `npm install ngx-modal --save`
+* `npm install @types/googlemaps --save-dev`
+* `npm install ngx-filter-pipe --save`
 
 ## Unsolved Problems
 * Implement the ability to handle unmatched routes and redirect users to the appropriate page
