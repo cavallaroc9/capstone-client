@@ -11,8 +11,6 @@ import { HttpModule } from '@angular/http';
 
 import { Router } from '@angular/router';
 
-import { ExamplesRoutingModule } from './examples/example-routing.module';
-import { ExamplesModule } from './examples/examples.module';
 import { PlaceRoutingModule } from './places/place-routing.module';
 import { PlacesModule } from './places/places.module';
 
@@ -56,8 +54,6 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    ExamplesModule,
-    ExamplesRoutingModule,
     PlacesModule,
     PlaceRoutingModule,
     RegisterRoutingModule,
