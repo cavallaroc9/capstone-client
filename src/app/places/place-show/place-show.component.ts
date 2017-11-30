@@ -35,9 +35,7 @@ export class PlaceShowComponent implements OnInit {
   		.subscribe(
         response => {
           window.scrollTo(0, 0);
-          console.log(response.json());
           this.onePlace = response.json()["place"];
-          console.log('onePlace IS', this.onePlace);
   		},
         err => {
           this.router.navigate(["/places"]);

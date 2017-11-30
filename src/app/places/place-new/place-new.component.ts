@@ -51,13 +51,9 @@ export class PlaceNewComponent implements OnInit {
           this.newPlace['country'] = '';
 
           let resultPlace: google.maps.places.PlaceResult = autocomplete.getPlace();
-          console.log('place is', resultPlace);
-
 
           for (var i = 0; i < resultPlace.address_components.length; i++) {
                     let addressType = resultPlace.address_components[i].types[0];
-                    console.log('addressType is', addressType)
-                    console.log('component', componentForm)
                     if (componentForm[addressType]) {
                       if (addressType === 'locality') {
                         let val = resultPlace.address_components[i][componentForm[addressType]];
@@ -70,7 +66,6 @@ export class PlaceNewComponent implements OnInit {
                         this.newPlace['country'] = val;
                       }
                     }
-                    console.log ('place is ', this.newPlace)
                   }
 
           if(resultPlace.geometry === undefined || resultPlace.geometry === null ){
@@ -102,12 +97,9 @@ resetStar(): void {
 
       let errMessage: string = 'Oops, something went wrong saving your travel memory. Please try again or refresh the page!';
 
-    	console.log("saving place");
-    	console.log(newPlace);
     	this.placesService.savePlace(newPlace)
     			.subscribe(
             response => {
-              console.log(response.json());
               let place = response.json()['place'];
               this.router.navigate(["/places/" + place.id]);
               this.alertService.success(successMessage);
@@ -124,7 +116,6 @@ resetStar(): void {
               window.scrollTo(0, 0);
               this.alertService.error(errMessage);
             }
-
           }
     )
     }
